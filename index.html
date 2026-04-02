@@ -24,6 +24,13 @@
   --fs-xl:clamp(38px,4.2vw,68px); --fs-hero:clamp(58px,6.5vw,108px);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+img{max-width:100%;height:auto;display:block;}
+.abfr img{height:100%;object-fit:cover;}
+@media(max-width:768px){
+  .abfr img{max-height:360px;}
+  section#services figure img{max-height:160px;}
+  section#contact .coninfo figure img{max-width:100%;}
+}
 html{scroll-behavior:smooth;}
 body{background:var(--ivory);color:var(--ink);font-family:'Raleway',sans-serif;font-weight:300;line-height:1.65;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;}
 ::selection{background:rgba(184,144,64,.2);color:var(--ink);}
@@ -493,6 +500,10 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
 
   <!-- HERO WALLPAPER SVG — Warm light with real jewellery illustration -->
   <div class="hero-img-bg">
+    <img src="images/hero-banner.png"
+         alt="Radiant Aura – luxury Indian jewellery flat-lay of gold necklaces, maang tikka, jhumkas and bangles on ivory silk"
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.22;pointer-events:none;z-index:0;"
+         loading="eager" fetchpriority="high">
     <svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
       <defs>
         <radialGradient id="warmBg" cx="50%" cy="48%" r="62%">
@@ -700,7 +711,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
   <div class="hero-right">
     <div class="hv">
       <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
-      <div class="hcard" style="overflow:hidden;"><img src="images/bridal signature set.webp" alt="Bridal Signature Set" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.18;border-radius:0;pointer-events:none;">
+      <div class="hcard" style="overflow:hidden;"><img src="images/bridal signature set.webp" alt="Bridal Signature Set" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55;border-radius:0;pointer-events:none;">
         <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
           <svg viewBox="0 0 270 340" width="270" height="340" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -900,45 +911,11 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
       </div>
     </div>
     <div class="abviz" data-rv="r">
-      <div class="abfr">
-        <div class="acr tl"></div><div class="acr tr"></div><div class="acr bl"></div><div class="acr br"></div>
-        <svg width="280" height="320" viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="abG" cx="30%" cy="25%" r="70%"><stop offset="0%" stop-color="#f0d898"/><stop offset="48%" stop-color="#c9a060"/><stop offset="100%" stop-color="#7a5830"/></radialGradient>
-            <radialGradient id="abR" cx="30%" cy="25%" r="70%"><stop offset="0%" stop-color="#fce0d8"/><stop offset="48%" stop-color="#d47858"/><stop offset="100%" stop-color="#8a3820"/></radialGradient>
-            <radialGradient id="abP" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#fff"/><stop offset="40%" stop-color="#f3ead8"/><stop offset="100%" stop-color="#d8c8a8"/></radialGradient>
-            <radialGradient id="abAtm" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#c9a060" stop-opacity="0.12"/><stop offset="100%" stop-color="#c9a060" stop-opacity="0"/></radialGradient>
-            <filter id="abGF"><feGaussianBlur stdDeviation="12"/></filter>
-            <filter id="abGem"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          </defs>
-          <ellipse cx="140" cy="160" rx="120" ry="120" fill="url(#abAtm)" filter="url(#abGF)"/>
-          <circle cx="140" cy="160" r="108" fill="none" stroke="#c9a060" stroke-width="0.5" stroke-dasharray="5 8" opacity="0.18"/>
-          <circle cx="140" cy="160" r="80" fill="none" stroke="#c9a060" stroke-width="0.4" stroke-dasharray="3 8" opacity="0.13"/>
-          <ellipse cx="140" cy="72" rx="100" ry="62" fill="none" stroke="#c9a060" stroke-width="1.4" opacity="0.42"/>
-          <g filter="url(#abGem)">
-            <polygon points="44,60 38,74 44,82 50,74" fill="url(#abR)" stroke="#f0a888" stroke-width="1"/>
-            <polygon points="74,28 68,42 74,50 80,42" fill="url(#abG)" stroke="#f0d098" stroke-width="1"/>
-            <polygon points="112,16 106,30 112,38 118,30" fill="url(#abR)" stroke="#f0a888" stroke-width="1.1"/>
-            <polygon points="140,12 134,26 140,34 146,26" fill="url(#abP)" stroke="#f0e8d8" stroke-width="1.2"/>
-            <polygon points="168,16 162,30 168,38 174,30" fill="url(#abG)" stroke="#f0d098" stroke-width="1.1"/>
-            <polygon points="206,28 200,42 206,50 212,42" fill="url(#abR)" stroke="#f0a888" stroke-width="1"/>
-            <polygon points="236,60 230,74 236,82 242,74" fill="url(#abG)" stroke="#f0d098" stroke-width="1"/>
-          </g>
-          <line x1="140" y1="134" x2="140" y2="162" stroke="#c9a060" stroke-width="1.5" opacity="0.5"/>
-          <g filter="url(#abGem)">
-            <polygon points="140,134 118,162 140,190 162,162" fill="url(#abR)" stroke="#f0a888" stroke-width="1.8" opacity="0.88"/>
-            <polygon points="140,190 118,162 162,162" fill="#7a2818" opacity="0.3"/>
-            <line x1="140" y1="134" x2="140" y2="190" stroke="#fce0d8" stroke-width="0.8" opacity="0.4"/>
-            <line x1="118" y1="162" x2="162" y2="162" stroke="#fce0d8" stroke-width="0.8" opacity="0.36"/>
-          </g>
-          <line x1="140" y1="190" x2="140" y2="212" stroke="#c9a060" stroke-width="1.2" opacity="0.46"/>
-          <ellipse cx="140" cy="220" rx="10" ry="12" fill="url(#abP)" stroke="#c9a060" stroke-width="1"/>
-          <g filter="url(#abGem)"><ellipse cx="140" cy="270" rx="44" ry="14" fill="none" stroke="#c9a060" stroke-width="1.6" opacity="0.44"/><polygon points="88,270 80,280 88,288 96,280" fill="url(#abR)" stroke="#f0a888" stroke-width="0.9"/><polygon points="140,248 132,260 140,256 148,260" fill="url(#abG)" stroke="#f0d098" stroke-width="1"/><polygon points="192,270 184,280 192,288 200,280" fill="url(#abR)" stroke="#f0a888" stroke-width="0.9"/></g>
-          <text x="96" y="118" font-size="14" fill="#c9a060" opacity="0.5">✦</text>
-          <text x="172" y="110" font-size="11" fill="#d47858" opacity="0.44">✦</text>
-          <text x="126" y="240" font-size="9" fill="#c9a060" opacity="0.44">✦</text>
-          <text x="148" y="242" font-size="8" fill="#d47858" opacity="0.38">✦</text>
-        </svg>
+      <div class="abfr" style="overflow:hidden;border-radius:4px;">
+        <img src="images/about-artisan.png"
+             alt="Radiant Aura artisan – Indian jewellery maker hand-setting a gemstone in the studio"
+             style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:4px;"
+             loading="lazy">
       </div>
       <div class="abpr"><div class="apnum">4.9</div><div class="rstars" style="font-size:13px;margin:6px 0;">★★★★★</div><div class="aplbl">1,200+ Reviews</div></div>
     </div>
@@ -967,6 +944,12 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     <h2 class="stitle">Beyond the <em>Ordinary</em></h2>
     <p class="ssub" style="margin:0 auto;text-align:center;">We're not just a jewellery store. We're your styling partner for every milestone and celebration in life.</p>
   </div>
+  <figure style="margin:0 0 56px;border-radius:8px;overflow:hidden;box-shadow:0 12px 48px rgba(184,144,64,.1);">
+    <img src="images/services-icons.png"
+         alt="Radiant Aura services – bridal curation, gift sets, wholesale, custom design and corporate gifting icons"
+         style="width:100%;max-height:240px;object-fit:cover;object-position:center;display:block;border-radius:8px;"
+         loading="lazy">
+  </figure>
   <div class="svcg">
     <div class="svc" data-rv data-d="100"><div class="svc-ico">💍</div><div class="svc-n">Service 01</div><h3 class="svc-title">Bridal Jewellery Curation</h3><p class="svc-desc">Complete bridal sets styled for mehndi, sangeet, reception, and vidaai — necklaces, maang tikka, jhumkas, nath, and bangles curated as a single cohesive collection so you dazzle at every ceremony.</p><div class="svc-cta">Book a Consultation →</div></div>
     <div class="svc" data-rv data-d="200"><div class="svc-ico">🎁</div><div class="svc-n">Service 02</div><h3 class="svc-title">Gifting & Occasion Sets</h3><p class="svc-desc">Beautifully curated gift sets for sisters, wives, and mothers — for Raksha Bandhan, Diwali, weddings, and birthdays. Ready to give, elegantly packaged in our signature velvet gift boxes.</p><div class="svc-cta">Explore Gift Sets →</div></div>
@@ -1048,7 +1031,13 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
       <div class="conitm"><div class="cilbl">Email</div><div class="cival">hello@radiantaura.in</div></div>
       <div class="conitm"><div class="cilbl">Studio (By Appointment)</div><div class="cival">Indore, Madhya Pradesh</div></div>
       <div class="conitm"><div class="cilbl">Hours</div><div class="cival">Mon–Sat · 10AM – 7PM IST</div></div>
-      <div class="socls" style="margin-top:34px;"><a href="#" class="socl">📸</a><a href="#" class="socl">💬</a><a href="#" class="socl">📌</a><a href="#" class="socl">▶</a></div>
+      <figure style="margin:32px 0 0;border-radius:8px;overflow:hidden;">
+        <img src="images/contact-illustration.png"
+             alt="Radiant Aura – jewellery studio stationery with rose gold pen, velvet ring box and gold necklace"
+             style="width:100%;max-width:320px;border-radius:8px;object-fit:cover;display:block;box-shadow:0 8px 32px rgba(184,144,64,.12);"
+             loading="lazy">
+      </figure>
+      <div class="socls" style="margin-top:28px;"><a href="#" class="socl">📸</a><a href="#" class="socl">💬</a><a href="#" class="socl">📌</a><a href="#" class="socl">▶</a></div>
     </div>
     <div data-rv="r">
       <div class="con-form-wrap">
