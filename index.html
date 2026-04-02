@@ -80,7 +80,8 @@ nav.sc{padding:16px 72px;background:rgba(253,249,244,.96);backdrop-filter:blur(2
 
 /* HERO */
 #home{min-height:100vh;position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 72px;overflow:hidden;z-index:1;}
-.hero-img-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.hero-img-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(180deg,#faf2e9 0%,#f8eee2 35%,#f7ebe3 100%);}
+.hero-img-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 32% 32%,rgba(255,255,255,.72),transparent 28%),radial-gradient(circle at 72% 22%,rgba(255,255,255,.55),transparent 20%),linear-gradient(135deg,rgba(255,255,255,.16) 0%,transparent 100%);pointer-events:none;opacity:.85;}
 .hero-img-bg svg{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:58vw;max-width:840px;opacity:1;}
 .hero-glow{position:absolute;width:860px;height:860px;
   background:radial-gradient(ellipse at 60% 42%,rgba(184,144,64,.1) 0%,rgba(212,120,90,.06) 35%,rgba(200,160,96,.04) 62%,transparent 80%);
@@ -112,6 +113,9 @@ nav.sc{padding:16px 72px;background:rgba(253,249,244,.96);backdrop-filter:blur(2
 .bg::after{content:'';position:absolute;bottom:-3px;left:0;width:100%;height:1px;background:currentColor;transform:scaleX(.28);transform-origin:left;transition:transform .35s var(--ease);}
 .bg:hover{color:var(--gold);}.bg:hover::after{transform:scaleX(1);}
 .hero-right{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;padding-top:96px;}
+.hero-shot{position:relative;width:min(520px,100%);display:flex;justify-content:center;align-items:center;padding:28px;background:rgba(255,255,255,.72);border-radius:34px;box-shadow:0 40px 80px rgba(30,20,10,.14);backdrop-filter:blur(14px);overflow:hidden;}
+.hero-shot img{width:100%;height:auto;object-fit:contain;display:block;transform:translateY(-4px);}
+.hero-shot::after{content:'';position:absolute;left:50%;bottom:-8px;width:82%;height:24px;background:radial-gradient(ellipse at center,rgba(129,103,69,.16),transparent 64%);transform:translateX(-50%);filter:blur(2px);}
 .hv{width:500px;height:560px;position:relative;opacity:0;animation:fi 1.6s 2s var(--ease) forwards;}
 .hcard{position:absolute;width:320px;height:420px;background:linear-gradient(148deg,var(--blush),var(--ivory3));border:1px solid rgba(184,144,64,.22);top:50%;left:50%;transform:translate(-50%,-50%) rotate(-3.5deg);overflow:hidden;box-shadow:0 48px 96px rgba(30,20,10,.12),0 0 48px rgba(184,144,64,.06);animation:cf 9s ease-in-out infinite;}
 @keyframes cf{0%,100%{transform:translate(-50%,-50%) rotate(-3.5deg) translateY(0);}50%{transform:translate(-50%,-50%) rotate(-3.5deg) translateY(-16px);}}
@@ -500,10 +504,6 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
 
   <!-- HERO WALLPAPER SVG — Warm light with real jewellery illustration -->
   <div class="hero-img-bg">
-    <img src="images/hero.jpg"
-         alt="Radiant Aura – luxury Indian jewellery flat-lay of gold necklaces, maang tikka, jhumkas and bangles on ivory silk"
-         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.22;pointer-events:none;z-index:0;"
-         loading="eager" fetchpriority="high">
     <svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
       <defs>
         <radialGradient id="warmBg" cx="50%" cy="48%" r="62%">
@@ -709,71 +709,11 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
 
   <!-- HERO RIGHT -->
   <div class="hero-right">
-    <div class="hv">
-      <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
-      <div class="hcard" style="overflow:hidden;"><img src="images/collection-signature.jpg" alt="Bridal Signature Set" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55;border-radius:0;pointer-events:none;">
-        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
-          <svg viewBox="0 0 270 340" width="270" height="340" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="hgG" cx="30%" cy="25%" r="70%"><stop offset="0%" stop-color="#f0d898"/><stop offset="48%" stop-color="#c9a060"/><stop offset="100%" stop-color="#7a5830"/></radialGradient>
-              <radialGradient id="hgR" cx="30%" cy="25%" r="70%"><stop offset="0%" stop-color="#fce0d8"/><stop offset="48%" stop-color="#d47858"/><stop offset="100%" stop-color="#8a3820"/></radialGradient>
-              <radialGradient id="hgP" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#fff"/><stop offset="40%" stop-color="#f3ead8"/><stop offset="100%" stop-color="#d8c8a8"/></radialGradient>
-              <radialGradient id="hgGlw" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#c9a060" stop-opacity="0.14"/><stop offset="100%" stop-color="#c9a060" stop-opacity="0"/></radialGradient>
-              <filter id="hgF"><feGaussianBlur stdDeviation="8"/></filter>
-              <filter id="hgGem"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <ellipse cx="135" cy="162" rx="100" ry="100" fill="url(#hgGlw)" filter="url(#hgF)"/>
-            <ellipse cx="135" cy="106" rx="86" ry="54" fill="none" stroke="#c9a060" stroke-width="1.4" opacity="0.48"/>
-            <g filter="url(#hgGem)">
-              <polygon points="54,96 50,106 54,113 58,106" fill="url(#hgR)" stroke="#f0a888" stroke-width="0.8"/>
-              <polygon points="77,63 73,73 77,80 81,73" fill="url(#hgG)" stroke="#f0d098" stroke-width="0.8"/>
-              <polygon points="106,51 102,61 106,68 110,61" fill="url(#hgR)" stroke="#f0a888" stroke-width="0.9"/>
-              <polygon points="135,48 131,58 135,65 139,58" fill="url(#hgP)" stroke="#f0e8d8" stroke-width="1.1"/>
-              <polygon points="164,51 160,61 164,68 168,61" fill="url(#hgG)" stroke="#f0d098" stroke-width="0.9"/>
-              <polygon points="193,63 189,73 193,80 197,73" fill="url(#hgR)" stroke="#f0a888" stroke-width="0.8"/>
-              <polygon points="216,96 212,106 216,113 220,106" fill="url(#hgG)" stroke="#f0d098" stroke-width="0.8"/>
-            </g>
-            <line x1="135" y1="160" x2="135" y2="192" stroke="#c9a060" stroke-width="1.2" opacity="0.55"/>
-            <g filter="url(#hgGem)">
-              <polygon points="135,160 117,186 135,212 153,186" fill="url(#hgR)" stroke="#f0a888" stroke-width="1.7" opacity="0.9"/>
-              <polygon points="135,212 117,186 153,186" fill="#7a2818" opacity="0.38"/>
-              <polygon points="135,160 117,186 153,186" fill="#f0a888" opacity="0.12"/>
-              <line x1="135" y1="160" x2="135" y2="212" stroke="#fce0d8" stroke-width="0.7" opacity="0.45"/>
-              <line x1="117" y1="186" x2="153" y2="186" stroke="#fce0d8" stroke-width="0.7" opacity="0.4"/>
-            </g>
-            <line x1="135" y1="212" x2="135" y2="232" stroke="#c9a060" stroke-width="0.9" opacity="0.45"/>
-            <ellipse cx="135" cy="239" rx="8" ry="10" fill="url(#hgP)" stroke="#c9a060" stroke-width="0.9"/>
-            <g filter="url(#hgGem)">
-              <circle cx="50" cy="208" r="13" fill="none" stroke="#c9a060" stroke-width="1.3" opacity="0.52"/>
-              <circle cx="50" cy="208" r="5" fill="none" stroke="#e8c870" stroke-width="0.6" opacity="0.28"/>
-              <circle cx="50" cy="208" r="2.5" fill="url(#hgG)" opacity="0.72"/>
-            </g>
-            <line x1="50" y1="195" x2="50" y2="184" stroke="#c9a060" stroke-width="1" opacity="0.46"/>
-            <g filter="url(#hgGem)">
-              <circle cx="220" cy="208" r="13" fill="none" stroke="#c9a060" stroke-width="1.3" opacity="0.52"/>
-              <circle cx="220" cy="208" r="5" fill="none" stroke="#f0a888" stroke-width="0.6" opacity="0.28"/>
-              <circle cx="220" cy="208" r="2.5" fill="url(#hgR)" opacity="0.72"/>
-            </g>
-            <line x1="220" y1="195" x2="220" y2="184" stroke="#c9a060" stroke-width="1" opacity="0.46"/>
-            <g filter="url(#hgGem)">
-              <ellipse cx="135" cy="295" rx="31" ry="11" fill="none" stroke="#c9a060" stroke-width="1.3" opacity="0.48"/>
-              <polygon points="135,270 126,286 135,280 144,286" fill="url(#hgG)" opacity="0.68" stroke="#f0d098" stroke-width="0.9"/>
-            </g>
-            <g filter="url(#hgGem)">
-              <text x="70" y="146" font-size="14" fill="#c9a060" opacity="0.62">✦</text>
-              <text x="172" y="136" font-size="10" fill="#d47858" opacity="0.52">✦</text>
-              <text x="105" y="254" font-size="9" fill="#c9a060" opacity="0.46">✦</text>
-              <text x="152" y="264" font-size="8" fill="#d47858" opacity="0.42">✦</text>
-            </g>
-          </svg>
-        </div>
-      </div>
-      <div class="fc f1"><div class="fc-lbl"><span class="fdot"></span>New Arrival</div><div class="fc-val">Rose Gold Bridal Set</div></div>
-      <div class="fc f2"><div class="fc-lbl">Top Seller</div><div class="fc-val">2,800+ Orders</div></div>
-      <div class="fc f3"><div class="fc-lbl">Starting From</div><div class="fc-val">₹299</div></div>
+    <div class="hero-shot">
+      <img src="images/collection-choker.png" alt="Gold choker necklace with white pearl strands, emerald centerpiece and hanging green beads" loading="eager" fetchpriority="high"/>
     </div>
   </div>
-  <div class="hsh"><div class="hst"></div>Scroll to Explore</div>
+<div class="hsh"><div class="hst"></div>Scroll to Explore</div>
 </section>
 
 <!-- MARQUEE -->
