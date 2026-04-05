@@ -25,11 +25,7 @@
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 
-.abfr { }
 @media(max-width:768px){
-  .abfr { }
-  section#services figure { }
-  section#contact .coninfo figure { }
 }
 html{scroll-behavior:smooth;}
 body{background:var(--ivory);color:var(--ink);font-family:'Raleway',sans-serif;font-weight:300;line-height:1.65;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;}
@@ -79,60 +75,119 @@ nav.sc{padding:16px 72px;background:rgba(253,249,244,.96);backdrop-filter:blur(2
 .mob a:hover{color:var(--gold);letter-spacing:8px;}
 
 /* HERO */
+/* ═══════ UPDATED CINEMATIC HERO ═══════ */
 .hero {
   height: 100vh;
-  background: url('images/bridal-hero.jpg') no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
-  z-index: 1;
+  z-index: 10;
+  overflow: hidden;
+  background: var(--ink); /* Fallback */
 }
 
-.hero::before {
-  content: "";
+/* Cinematic Video/Image Animation (Ken Burns Effect) */
+.hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
+  inset: 0;
+  z-index: -1;
+  background: url('images/bridal-hero.jpg') no-repeat center center/cover;
+  animation: cinematic-pan 45s linear infinite alternate;
+  filter: brightness(0.68) contrast(1.05) saturate(0.92);
+}
+
+@keyframes cinematic-pan {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.22); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 20%, rgba(30, 20, 10, 0.72) 100%);
+  z-index: 0;
 }
 
 .hero-content {
   position: relative;
-  color: #fff;
-  max-width: 600px;
+  color: var(--white);
+  max-width: 920px;
   z-index: 2;
+  padding: 0 28px;
 }
 
 .hero h1 {
-  font-size: 48px;
-  font-weight: bold;
-  margin-bottom: 15px;
+  font-size: var(--fs-hero);
   font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  letter-spacing: -2px;
+  text-shadow: 0 12px 36px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(28px);
+  animation: fu 1.2s 0.6s var(--ease) forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-xl);
 }
 
 .hero p {
-  font-size: 18px;
-  margin-bottom: 25px;
-  line-height: 1.6;
+  font-size: var(--fs-lg);
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 42px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.85);
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fu 1s 0.9s var(--ease) forwards;
 }
 
-.btn {
-  padding: 12px 30px;
-  background: gold;
-  color: black;
+.btn-cinematic {
+  padding: 18px 48px;
+  background: linear-gradient(135deg, var(--gold), var(--rose));
+  color: var(--white);
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 30px;
-  transition: 0.3s;
+  font-weight: 600;
+  font-size: var(--fs-xs);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.22);
+  transition: all 0.45s var(--ease);
   display: inline-block;
+  opacity: 0;
+  animation: fi 1s 1.2s forwards;
+  backdrop-filter: blur(8px);
 }
 
-.btn:hover {
-  background: #d4af37;
+.btn-cinematic:hover {
+  transform: translateY(-5px);
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 20px 48px rgba(184,144,64,0.3);
+}
+
+/* CINEMATIC SECTION TAG */
+.cine-tag {
+  position: absolute;
+  top: 140px;
+  left: 72px;
+  writing-mode: vertical-lr;
+  font-size: 9px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  z-index: 2;
+  opacity: 0;
+  animation: fi 1s 2s forwards;
 }
 
 /* Scroll Indicators & Old Elements (Keeping some for consistency if needed) */
@@ -498,12 +553,63 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
 
 <!-- ═══════ HERO ═══════ -->
 <section id="home" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="cine-tag">Cinematic Collection — 2026</div>
+
   <div class="hero-content">
-    <h1>Jewellery That Honours Every Occasion</h1>
-    <p>Premium stainless steel jewellery that looks like fine gold — hypoallergenic, tarnish-proof, and made for the modern Indian woman.</p>
-    <a href="#collections" class="btn">Explore Collections</a>
+    <h1>Jewellery That<br>Honours <em>Every Occasion</em></h1>
+    <p>Luxury Indian bridal jewelry crafted with surgical-grade steel — designed for the modern woman who demands the brilliance of fine gold without compromise.</p>
+    <div style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;">
+      <a href="#collections" class="btn-cinematic">Explore Collections</a>
+      <a href="#gallery" class="btn-cinematic" style="background:transparent;border:1px solid var(--white);">View Film Gallery</a>
+    </div>
   </div>
-  <div class="hsh"><div class="hst"></div>Scroll to Explore</div>
+  
+  <div class="hsh" style="color:var(--white);">
+    <div class="hst" style="background:rgba(255,255,255,0.3);"></div>
+    <span style="opacity:0.7;">Experience the Craftsmanship</span>
+  </div>
+</section>
+
+<!-- ═══════ CINEMATIC SHOWCASE ═══════ -->
+<section id="cinematic-showcase" style="background:var(--ink); padding: 180px 72px; overflow:hidden;">
+  <div class="abg" style="align-items:center;">
+    <div data-rv="l">
+      <div class="stag" style="color:var(--gold-xl);">Fashion Film Aesthetic</div>
+      <h2 class="stitle" style="color:var(--white); font-size:clamp(42px, 5vw, 82px); line-height:1;">
+        The <em>Art</em> of<br>Radiance
+      </h2>
+      <div class="gl" style="background:linear-gradient(to right, var(--gold-xl), transparent); margin-bottom:42px;"></div>
+      <p class="ssub" style="color:rgba(255,255,255,0.7); max-width:580px; font-size:16px;">
+        Inspired by high-end fashion films, our cinematic collection highlights the intricate depth of Indian bridal heritage. Warm golden lighting meets soft bokeh to showcase every hand-set stone and tarnish-proof link.
+      </p>
+      <div class="aipn" style="background:var(--ink2); border:1px solid rgba(184,144,64,0.18); margin-top:42px; box-shadow:none;">
+        <div class="aipl" style="color:var(--gold-xl);">Cinematic Specs</div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px; margin-top:24px;">
+          <div><div class="aipl" style="font-size:10px; opacity:0.6;">Lighting</div><div style="color:var(--white); font-family:'Playfair Display',serif;">Warm Golden Glow</div></div>
+          <div><div class="aipl" style="font-size:10px; opacity:0.6;">Background</div><div style="color:var(--white); font-family:'Playfair Display',serif;">Royal Palace Elegance</div></div>
+          <div><div class="aipl" style="font-size:10px; opacity:0.6;">Motion</div><div style="color:var(--white); font-family:'Playfair Display',serif;">Slow Motion / 4K</div></div>
+          <div><div class="aipl" style="font-size:10px; opacity:0.6;">Depth</div><div style="color:var(--white); font-family:'Playfair Display',serif;">Shallow Depth of Field</div></div>
+        </div>
+      </div>
+    </div>
+    <div data-rv="r" style="position:relative;">
+      <div class="abfr" style="background:var(--ink3); border:none; height:680px; border-radius:4px; box-shadow: 0 42px 100px rgba(0,0,0,0.5);">
+        <!-- Placeholder for Cinematic Video/Image -->
+        <div style="position:absolute; inset:0; background: url('images/neckless/bridal,gold set.png') center center/cover; filter: contrast(1.1) brightness(0.9);"></div>
+        <div style="position:absolute; inset:0; background: radial-gradient(circle at center, transparent, rgba(0,0,0,0.8));"></div>
+        <div class="acr tl" style="border-color:var(--gold-xl);"></div><div class="acr tr" style="border-color:var(--gold-xl);"></div>
+        <div class="acr bl" style="border-color:var(--gold-xl);"></div><div class="acr br" style="border-color:var(--gold-xl);"></div>
+        <div style="position:absolute; bottom:42px; left:42px; color:var(--white); font-family:'Playfair Display',serif; font-style:italic;">
+          <span style="font-size:32px; opacity:0.9;">✦ Curated Brilliance</span>
+        </div>
+        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:82px; height:82px; border:1px solid rgba(255,255,255,0.4); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; background:rgba(184,144,64,0.1); backdrop-filter:blur(12px); transition:all 0.4s var(--ease);">
+          <div style="width:0; height:0; border-top:12px solid transparent; border-bottom:12px solid transparent; border-left:18px solid var(--white); margin-left:6px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- MARQUEE -->
