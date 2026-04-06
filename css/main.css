@@ -21,6 +21,53 @@
   --container-width: 1200px;
   --border-radius: 12px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --cursor-size: 20px;
+}
+
+#particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--bg-dark);
+}
+
+/* Custom Cursor */
+.cursor-dot {
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  background: var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  display: none;
+}
+
+.cursor-outline {
+  width: calc(var(--cursor-size) * 3);
+  height: calc(var(--cursor-size) * 3);
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.2s ease-out;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  display: none;
+}
+
+@media (pointer: fine) {
+  .cursor-dot, .cursor-outline {
+    display: block;
+  }
 }
 
 * {
@@ -51,6 +98,7 @@ h1, h2, h3, h4 {
 .text-gradient {
   background: var(--gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

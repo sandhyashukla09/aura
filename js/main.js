@@ -86,11 +86,129 @@ document.addEventListener('DOMContentLoaded', () => {
   revealElements.forEach(el => observer.observe(el));
 
   // Current page highlighting
-  const currentPath = window.location.pathname;
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPath || (currentPath === '/' && link.getAttribute('href') === 'index.html')) {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath) {
       link.classList.add('active');
     }
   });
+
+  // Custom Cursor Logic
+  const cursorDot = document.createElement('div');
+  const cursorOutline = document.createElement('div');
+  cursorDot.classList.add('cursor-dot');
+  cursorOutline.classList.add('cursor-outline');
+  document.body.appendChild(cursorDot);
+  document.body.appendChild(cursorOutline);
+
+  window.addEventListener('mousemove', (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+    
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+    
+    cursorOutline.animate({
+      left: `${posX}px`,
+      top: `${posY}px`
+    }, { duration: 500, fill: 'forwards' });
+  });
+
+  const interactiveElements = document.querySelectorAll('a, button, .btn');
+  if (interactiveElements) {
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        cursorOutline.style.background = 'var(--primary-glow)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursorOutline.style.background = 'transparent';
+      });
+    });
+  }
+
+  // AI Edge Particles Logic
+  const particleContainer = document.getElementById('particle-container');
+  if (particleContainer) {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    particleContainer.appendChild(canvas);
+
+    let particles = [];
+    const particleCount = 70;
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+      constructor() {
+        this.init();
+      }
+
+      init() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0, 242, 234, 0.3)';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+        
+        particles.forEach(p2 => {
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 242, 234, ${0.1 * (1 - dist / 100)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        });
+      });
+      
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+  }
 });
