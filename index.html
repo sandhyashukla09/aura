@@ -490,24 +490,40 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
 @media(max-width:640px){.strow{grid-template-columns:1fr;}.statg{grid-template-columns:1fr;}}
 
 /* GALLERY SECTION */
-#gallery{background:var(--ivory);border-top:1px solid rgba(184,144,64,.1);padding-bottom:72px;}
-.g-cat{margin-bottom:80px;}
+#gallery{background:var(--ivory);border-top:1px solid rgba(184,144,64,.1);padding-bottom:120px;}
+.g-cat{margin-bottom:110px;}
 .g-cat:last-child{margin-bottom:0;}
-.g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:38px;}
-.g-item{position:relative;background:var(--white);border:1px solid rgba(184,144,64,.1);overflow:hidden;transition:all .45s var(--ease);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;padding:22px;box-shadow:0 12px 36px rgba(30,20,10,.04);}
-.g-item:hover{transform:translateY(-10px);box-shadow:0 36px 72px rgba(30,20,10,.14);border-color:var(--gold);}
-.g-img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
-.g-item:hover .g-img{transform:scale(1.08);}
-.g-info{position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(to top,rgba(253,249,244,0.98),transparent);transform:translateY(100%);transition:transform .4s var(--ease);border-top:1px solid rgba(184,144,64,.08);}
-.g-item:hover .g-info{transform:translateY(0);}
-.g-name{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink2);text-align:center;text-transform:capitalize;letter-spacing:0.5px;}
-.g-badge{position:absolute;top:14px;left:14px;background:rgba(184,144,64,.08);color:var(--gold);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border:1px solid rgba(184,144,64,.12);backdrop-filter:blur(10px);z-index:2;}
+.g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px;margin-top:42px;}
+.g-item{position:relative;background:var(--white);border:1px solid rgba(184,144,64,.08);overflow:hidden;transition:all .5s var(--ease);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;padding:12px;box-shadow:0 8px 32px rgba(30,20,10,.03);}
+.g-item:hover{transform:translateY(-12px);box-shadow:0 42px 84px rgba(30,20,10,.12);border-color:var(--gold);}
 
+/* Image Container for consistent sizing */
+.g-img-wrap{width:100%;height:100%;overflow:hidden;background:var(--ivory2);position:relative;}
+.g-img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);will-change:transform;}
+.g-item:hover .g-img{transform:scale(1.12);}
+
+.g-info{position:absolute;bottom:0;left:0;right:0;padding:28px 24px;background:linear-gradient(to top, var(--white) 60%, transparent);transform:translateY(100%);transition:transform .5s var(--ease);border-top:1px solid rgba(184,144,64,.06);z-index:3;}
+.g-item:hover .g-info{transform:translateY(0);}
+.g-name{font-family:'Playfair Display',serif;font-size:17px;color:var(--ink2);text-align:center;text-transform:capitalize;letter-spacing:0.5px;margin-bottom:4px;}
+.g-view{font-size:9px;color:var(--gold);text-transform:uppercase;letter-spacing:3px;text-align:center;display:block;opacity:0;transition:opacity .3s .1s;}
+.g-item:hover .g-view{opacity:1;}
+
+.g-badge{position:absolute;top:20px;left:20px;background:rgba(255,255,255,0.72);color:var(--gold);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(184,144,64,0.15);backdrop-filter:blur(12px);z-index:2;font-weight:600;transition:all .4s var(--ease);}
+.g-item:hover .g-badge{background:var(--gold);color:var(--white);border-color:var(--gold);}
+
+@media(max-width:1200px){
+  .g-grid{grid-template-columns:repeat(3,1fr);gap:24px;}
+}
 @media(max-width:768px){
   .g-grid{grid-template-columns:repeat(2,1fr);gap:16px;}
-  .g-item{padding:12px;}
-  .g-info{padding:14px;transform:translateY(0);background:rgba(253,249,244,0.92);}
-  .g-name{font-size:13px;}
+  .g-item{padding:8px;}
+  .g-info{padding:18px 14px;transform:translateY(0);background:rgba(255,255,255,0.95);border-top:none;}
+  .g-name{font-size:14px;}
+  .g-view{display:none;}
+  .g-badge{top:12px;left:12px;padding:4px 10px;font-size:8px;}
+}
+@media(max-width:480px){
+  .g-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -725,13 +741,23 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     <div class="g-grid">
       <div class="g-item" data-rv data-d="100">
         <div class="g-badge">Set</div>
-        <img src="images/bangals/floral,bangl,set.webp" alt="Floral Bangle Set" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Floral Bangle Set</div></div>
+        <div class="g-img-wrap">
+          <img src="images/bangals/floral,bangl,set.webp" alt="Floral Bangle Set" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Floral Bangle Set</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
       <div class="g-item" data-rv data-d="200">
         <div class="g-badge">Classic</div>
-        <img src="images/bangals/gold,bangals.png" alt="Gold Bangals" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Gold Bangles</div></div>
+        <div class="g-img-wrap">
+          <img src="images/bangals/gold,bangals.png" alt="Gold Bangles" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Gold Bangles</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
     </div>
   </div>
@@ -741,19 +767,74 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     <div class="stag">Earring Collection</div>
     <div class="g-grid">
       <div class="g-item" data-rv data-d="100">
-        <div class="g-badge">Traditional</div>
-        <img src="images/earings/heavi,jhumka.jpg" alt="Heavy Jhumka" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Heavy Jhumka</div></div>
+        <div class="g-badge">Diamond</div>
+        <div class="g-img-wrap">
+          <img src="images/earings/dimonds_earings.png" alt="Diamond Earrings" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Diamond Earrings</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
       <div class="g-item" data-rv data-d="200">
-        <div class="g-badge">Lightweight</div>
-        <img src="images/earings/light,earing.png" alt="Light Earring" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Light Earring</div></div>
+        <div class="g-badge">Traditional</div>
+        <div class="g-img-wrap">
+          <img src="images/earings/heavi,jhumka.jpg" alt="Heavy Jhumka" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Heavy Jhumka</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
       <div class="g-item" data-rv data-d="300">
+        <div class="g-badge">Elegant</div>
+        <div class="g-img-wrap">
+          <img src="images/earings/light,earing.png" alt="Light Earring" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Light Earring</div>
+          <span class="g-view">View Details</span>
+        </div>
+      </div>
+      <div class="g-item" data-rv data-d="400">
+        <div class="g-badge">Statement</div>
+        <div class="g-img-wrap">
+          <img src="images/earings/long_earings.jpg" alt="Long Earrings" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Long Earrings</div>
+          <span class="g-view">View Details</span>
+        </div>
+      </div>
+      <div class="g-item" data-rv data-d="500">
         <div class="g-badge">Minimal</div>
-        <img src="images/earings/mini aring.png" alt="Mini Earring" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Mini Earrings</div></div>
+        <div class="g-img-wrap">
+          <img src="images/earings/mini aring.png" alt="Mini Earring" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Mini Earrings</div>
+          <span class="g-view">View Details</span>
+        </div>
+      </div>
+      <div class="g-item" data-rv data-d="600">
+        <div class="g-badge">Round</div>
+        <div class="g-img-wrap">
+          <img src="images/earings/miniround_earings.png" alt="Mini Round Earrings" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Mini Round Earrings</div>
+          <span class="g-view">View Details</span>
+        </div>
+      </div>
+      <div class="g-item" data-rv data-d="700">
+        <div class="g-badge">Modern</div>
+        <div class="g-img-wrap">
+          <img src="images/earings/sheaded_earings.png" alt="Shaded Earrings" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Shaded Earrings</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
     </div>
   </div>
@@ -764,43 +845,103 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     <div class="g-grid">
       <div class="g-item" data-rv data-d="100">
         <div class="g-badge">Bridal</div>
-        <img src="images/neckless/beidal,multi.set.webp" alt="Bridal Multi Set" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Bridal Multi Set</div></div>
+        <div class="g-img-wrap">
+          <img src="images/neckless/beidal,multi.set.webp" alt="Bridal Multi Set" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Bridal Multi Set</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
       <div class="g-item" data-rv data-d="200">
         <div class="g-badge">Statement</div>
-        <img src="images/neckless/bridal statement set.png" alt="Bridal Statement Set" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Bridal Statement Set</div></div>
+        <div class="g-img-wrap">
+          <img src="images/neckless/bridal statement set.png" alt="Bridal Statement Set" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Bridal Statement Set</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
       <div class="g-item" data-rv data-d="300">
-        <div class="g-badge">Gold Plated</div>
-        <img src="images/neckless/bridal,gold set.png" alt="Bridal Gold Set" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Bridal Gold Set</div></div>
+        <div class="g-badge">Gold</div>
+        <div class="g-img-wrap">
+          <img src="images/neckless/bridal,gold set.png" alt="Bridal Gold Set" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Bridal Gold Set</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
       <div class="g-item" data-rv data-d="400">
-        <div class="g-badge">Choker</div>
-        <img src="images/neckless/celestial choker.jpg" alt="Celestial Choker" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Celestial Choker</div></div>
+        <div class="g-badge">Celestial</div>
+        <div class="g-img-wrap">
+          <img src="images/neckless/celestial choker.jpg" alt="Celestial Choker" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Celestial Choker</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
       <div class="g-item" data-rv data-d="500">
-        <div class="g-badge">Diamond</div>
-        <img src="images/neckless/dimond,set.png" alt="Diamond Set" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Diamond Set</div></div>
+        <div class="g-badge">Collection</div>
+        <div class="g-img-wrap">
+          <img src="images/neckless/collection_jwellery.png" alt="Collection Jewelry" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Collection Jewelry</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
       <div class="g-item" data-rv data-d="600">
-        <div class="g-badge">Ethnic</div>
-        <img src="images/neckless/ethnic,set.png" alt="Ethnic Set" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Ethnic Set</div></div>
+        <div class="g-badge">Diamond</div>
+        <div class="g-img-wrap">
+          <img src="images/neckless/dimond,set.png" alt="Diamond Set" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Diamond Set</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
       <div class="g-item" data-rv data-d="700">
-        <div class="g-badge">Festive</div>
-        <img src="images/neckless/festivl,necklac.jpg" alt="Festival Necklace" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Festival Necklace</div></div>
+        <div class="g-badge">Ethnic</div>
+        <div class="g-img-wrap">
+          <img src="images/neckless/ethnic,set.png" alt="Ethnic Set" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Ethnic Set</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
       <div class="g-item" data-rv data-d="800">
+        <div class="g-badge">Festive</div>
+        <div class="g-img-wrap">
+          <img src="images/neckless/festivl,necklac.jpg" alt="Festival Necklace" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Festival Necklace</div>
+          <span class="g-view">View Details</span>
+        </div>
+      </div>
+      <div class="g-item" data-rv data-d="900">
+        <div class="g-badge">Multi</div>
+        <div class="g-img-wrap">
+          <img src="images/neckless/multicolor_set.png" alt="Multicolor Set" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Multicolor Set</div>
+          <span class="g-view">View Details</span>
+        </div>
+      </div>
+      <div class="g-item" data-rv data-d="1000">
         <div class="g-badge">Rose Gold</div>
-        <img src="images/neckless/rose,gold,set.jpg" alt="Rose Gold Set" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Rose Gold Set</div></div>
+        <div class="g-img-wrap">
+          <img src="images/neckless/rose,gold,set.jpg" alt="Rose Gold Set" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Rose Gold Set</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
     </div>
   </div>
@@ -810,14 +951,24 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     <div class="stag">Rings & More</div>
     <div class="g-grid">
       <div class="g-item" data-rv data-d="100">
-        <div class="g-badge">Premium</div>
-        <img src="images/ring/dimond,ring.png" alt="Diamond Ring" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Diamond Ring</div></div>
+        <div class="g-badge">Diamond</div>
+        <div class="g-img-wrap">
+          <img src="images/ring/dimond,ring.png" alt="Diamond Ring" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Diamond Ring</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
       <div class="g-item" data-rv data-d="200">
         <div class="g-badge">Nose Ring</div>
-        <img src="images/ring/gold,nose,ring.webp" alt="Gold Nose Ring" class="g-img" loading="lazy">
-        <div class="g-info"><div class="g-name">Gold Nose Ring</div></div>
+        <div class="g-img-wrap">
+          <img src="images/ring/gold,nose,ring.webp" alt="Gold Nose Ring" class="g-img" loading="lazy">
+        </div>
+        <div class="g-info">
+          <div class="g-name">Gold Nose Ring</div>
+          <span class="g-view">View Details</span>
+        </div>
       </div>
     </div>
   </div>
