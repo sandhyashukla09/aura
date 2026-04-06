@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | GeniusMesh - Advanced Leadership Solutions</title>
+    <meta name="description" content="Explore our AI-driven executive search, coaching, interim leadership, and talent management services.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <style>
+        .services-header {
+            padding: 180px 0 100px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-dark) 100%);
+        }
+
+        .services-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+        }
+
+        .services-header p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            padding: 50px;
+            background: var(--bg-surface);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            background: var(--bg-surface-lighter);
+        }
+
+        .service-card-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--primary-glow);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .service-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-card li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card li::before {
+            content: "→";
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        @media (max-width: 968px) {
+            .services-detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                GeniusMesh<span class="logo-dot"></span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="ai-edge.html" class="nav-link">AI Edge</a></li>
+                <li><a href="results.html" class="nav-link">Results</a></li>
+                <li><a href="insights.html" class="nav-link">Insights</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="#" class="btn btn-primary">Book Free Discovery Call</a>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="services-header">
+        <div class="container reveal">
+            <h1>Expertise for the <span class="text-gradient">Modern Board</span></h1>
+            <p>From rapid executive search to long-term talent management, we deliver precision and performance at every level.</p>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="services-detail-grid">
+                
+                <div class="service-card reveal" data-delay="100" id="executive-search">
+                    <div class="service-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </div>
+                    <h3>Executive Search</h3>
+                    <p>Leveraging deep data sets and high-touch methodology to identify, attract, and assess next-generation C-suite leaders.</p>
+                    <ul>
+                        <li>AI-Powered Candidate Sourcing</li>
+                        <li>Cultural Alignment Verification</li>
+                        <li>Global Network Reach</li>
+                    </ul>
+                </div>
+
+                <div class="service-card reveal" data-delay="200" id="executive-coaching">
+                    <div class="service-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m14 15 2.5 2.5"/><path d="m15 14 3.5-3.5a2.12 2.12 0 0 0 0-3l-3-3a2.12 2.12 0 0 0-3 0L9 8"/><path d="m11.5 12.5 2.5 2.5"/></svg>
+                    </div>
+                    <h3>Executive Coaching</h3>
+                    <p>Strategic advisory for leaders navigating complex transitions, scaling operations, or refining organizational culture.</p>
+                    <ul>
+                        <li>1-on-1 Strategic Coaching</li>
+                        <li>Succession Readiness</li>
+                        <li>Crisis Leadership Advisory</li>
+                    </ul>
+                </div>
+
+                <div class="service-card reveal" data-delay="100" id="interim-leadership">
+                    <div class="service-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3>Interim Leadership</h3>
+                    <p>Immediate placement of seasoned executives to manage transitions, turnarounds, or temporary leadership gaps.</p>
+                    <ul>
+                        <li>72-Hour Rapid Response</li>
+                        <li>Objective Management View</li>
+                        <li>Impact-Driven Assignments</li>
+                    </ul>
+                </div>
+
+                <div class="service-card reveal" data-delay="200" id="careerpath-assessment">
+                    <div class="service-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M16 11h6"/></svg>
+                    </div>
+                    <h3>CareerPath Assessment</h3>
+                    <p>Proprietary evaluation frameworks that chart the trajectory of leadership talent against market benchmarks.</p>
+                    <ul>
+                        <li>Psychometric Analysis</li>
+                        <li>Performance Forecasting</li>
+                        <li>Skill Gap Identification</li>
+                    </ul>
+                </div>
+
+                <div class="service-card reveal" data-delay="100" id="emba-network">
+                    <div class="service-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <h3>EMBA Network</h3>
+                    <p>Exclusive access to top-tier graduates and lifelong learners from the world’s leading executive education programs.</p>
+                    <ul>
+                        <li>Tier-1 Business School Sync</li>
+                        <li>Continuous Talent Pipeline</li>
+                        <li>Global Alumni Engagement</li>
+                    </ul>
+                </div>
+
+                <div class="service-card reveal" data-delay="200" id="talent-management">
+                    <div class="service-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+                    </div>
+                    <h3>Talent Management</h3>
+                    <p>Holistic organizational design and retention strategies that keep your high-performers aligned and engaged.</p>
+                    <ul>
+                        <li>Organizational Audits</li>
+                        <li>Retention Engineering</li>
+                        <li>Incentive Structuring</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="container reveal">
+        <div class="cta-section" style="margin-top: 0; margin-bottom: 100px;">
+            <h2>Strategy First. Search Second.</h2>
+            <p>Let's find the leadership model that works for your unique organizational challenges.</p>
+            <a href="#" class="btn btn-primary">Book Discovery Call</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="logo footer-logo">GeniusMesh<span class="logo-dot"></span></a>
+                    <p class="footer-desc">AI-driven executive search and leadership development firm. Connecting C-suite leaders with organizations since 2017.</p>
+                    <p style="font-weight: 600;">Locations:</p>
+                    <p class="footer-desc" style="font-size: 0.9rem;">Charlotte, NC & San Francisco, CA</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#executive-search">Executive Search</a></li>
+                        <li><a href="services.html#executive-coaching">Executive Coaching</a></li>
+                        <li><a href="services.html#interim-leadership">Interim Leadership</a></li>
+                        <li><a href="services.html#talent-management">Talent Management</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="ai-edge.html">AI Edge</a></li>
+                        <li><a href="results.html">Results</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Stay Ahead</h4>
+                    <p class="footer-desc" style="font-size: 0.9rem;">Join 5,000+ executives receiving weekly leadership and AI insights.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Work Email" required>
+                        <button type="submit" class="btn btn-primary" style="padding: 10px 20px;">Join</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 GeniusMesh. All rights reserved.</p>
+                <div style="display: flex; gap: 24px;">
+                    <a href="#" style="color: var(--text-dim); text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: var(--text-dim); text-decoration: none;">Terms of Service</a>
+                    <a href="#" style="color: var(--text-dim); text-decoration: none;">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
