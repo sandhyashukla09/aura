@@ -307,38 +307,105 @@ section{padding:112px 72px;position:relative;z-index:1;}
 .aigb::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.16);transform:translateX(-108%) skewX(-16deg);transition:transform .5s var(--ease);}
 .aigb:hover::before{transform:translateX(108%) skewX(-16deg);}.aigb:hover{background:var(--gold-l);}
 
-/* COLLECTIONS */
-#collections{background:var(--ivory);}
-.chdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;}
-.frow{display:flex;gap:3px;margin-bottom:42px;flex-wrap:wrap;}
-.fb{padding:10px 22px;font-size:var(--fs-xs);letter-spacing:2.5px;text-transform:uppercase;border:1px solid rgba(184,144,64,.16);background:transparent;color:var(--text);cursor:pointer;font-family:'Raleway',sans-serif;transition:all .32s var(--ease);position:relative;overflow:hidden;}
-.fb::before{content:'';position:absolute;inset:0;background:rgba(184,144,64,.08);transform:translateY(100%);transition:transform .32s var(--ease);}
-.fb:hover::before,.fb.act::before{transform:translateY(0);}
-.fb:hover,.fb.act{color:var(--gold);border-color:var(--gold);}
-.cg{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:78px;gap:3px;}
-.cc{position:relative;overflow:hidden;cursor:pointer;background:var(--ivory2);transition:opacity .42s,transform .42s;}
-.cc:nth-child(1){grid-column:span 5;grid-row:span 6;}
-.cc:nth-child(2){grid-column:span 4;grid-row:span 3;}
-.cc:nth-child(3){grid-column:span 3;grid-row:span 3;}
-.cc:nth-child(4){grid-column:span 4;grid-row:span 3;}
-.cc:nth-child(5){grid-column:span 3;grid-row:span 3;}
-.cci{width:100%;height:100%;position:relative;overflow:hidden;}
-/* COLLECTION CARD IMAGES */
-.ca{position:absolute;inset:0;overflow:hidden;}
-.ca img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .75s var(--ease);}
-.cc:hover .ca img{transform:scale(1.08);}
-.csh{position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,144,64,.06) 0%,transparent 55%,rgba(200,96,74,.04) 100%);opacity:0;transition:opacity .4s;pointer-events:none;}
-.cc:hover .csh{opacity:1;}
-.cinfo{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,10,4,.82) 0%,rgba(20,10,4,.1) 52%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px 22px;}
-.cname{font-family:'Playfair Display',serif;font-size:18px;color:var(--white);margin-bottom:3px;transform:translateY(10px);transition:transform .42s var(--ease);}
-.cc:nth-child(1) .cname{font-size:26px;}
-.cc:hover .cname{transform:translateY(0);}
-.cprice{font-size:var(--fs-xs);letter-spacing:2.5px;text-transform:uppercase;color:var(--champ3);opacity:0;transform:translateY(6px);transition:opacity .4s .06s var(--ease),transform .4s .06s var(--ease);}
-.cc:hover .cprice{opacity:1;transform:translateY(0);}
-.cbadge{position:absolute;top:13px;left:13px;background:var(--rose);color:var(--white);font-size:7px;letter-spacing:2px;padding:5px 11px;text-transform:uppercase;font-weight:700;}
-.cbtn{position:absolute;top:13px;right:13px;width:34px;height:34px;border:1px solid rgba(184,144,64,.45);background:rgba(253,249,244,.88);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:14px;opacity:0;transform:translate(5px,-5px);transition:all .36s var(--ease);}
-.cc:hover .cbtn{opacity:1;transform:translate(0,0);}
-.cnum{position:absolute;bottom:18px;right:18px;font-family:'Playfair Display',serif;font-size:46px;color:rgba(255,255,255,.08);line-height:1;pointer-events:none;}
+/* COLLECTIONS CURATED ELEGANCE */
+#collections { background: var(--ivory); }
+.curated-container { max-width: 1400px; margin: 0 auto; }
+.curated-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    align-items: start;
+}
+.curated-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    background: var(--ivory2);
+    box-shadow: 0 10px 30px rgba(30,20,10,0.05);
+    transition: all 0.5s var(--ease);
+}
+.curated-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px rgba(30,20,10,0.12);
+}
+.curated-card.large {
+    grid-column: 1;
+    grid-row: span 2;
+    aspect-ratio: 4 / 5;
+}
+.curated-card.small {
+    aspect-ratio: 3 / 2;
+}
+.curated-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s var(--ease);
+}
+.curated-card:hover img {
+    transform: scale(1.1);
+}
+.curated-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(30,20,10,0.85) 0%, rgba(30,20,10,0.2) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    opacity: 0;
+    transition: all 0.4s var(--ease);
+}
+.curated-card:hover .curated-overlay {
+    opacity: 1;
+}
+.curated-tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-xl);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+.curated-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+.curated-price {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+}
+.curated-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    font-size: 14px;
+    transition: all 0.3s;
+}
+.curated-card:hover .curated-btn {
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: rotate(45deg);
+}
+
 
 /* GALLERY */
 #gallery{background:var(--ivory2);border-top:1px solid rgba(184,144,64,.1);}
@@ -548,12 +615,8 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
 @media(max-width:1200px){
   .aig,.abg,.con-wrap{grid-template-columns:1fr;gap:52px;}
   .ftg{grid-template-columns:1fr 1fr;}
-  .cg{grid-template-columns:repeat(6,1fr);}
-  .cc:nth-child(1){grid-column:span 6;grid-row:span 5;}
-  .cc:nth-child(2){grid-column:span 3;grid-row:span 3;}
-  .cc:nth-child(3){grid-column:span 3;grid-row:span 3;}
-  .cc:nth-child(4){grid-column:span 3;grid-row:span 3;}
-  .cc:nth-child(5){grid-column:span 3;grid-row:span 3;}
+  .curated-grid{gap:15px;}
+  .curated-title{font-size:18px;}
   .gal-grid{grid-template-columns:repeat(6,1fr);}
   .gal-item:nth-child(1){grid-column:span 3;grid-row:span 5;}
   .gal-item:nth-child(2){grid-column:span 3;grid-row:span 3;}
@@ -570,10 +633,8 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
   nav{padding:20px 28px;}.nls,.ncta{display:none;}.hbg{display:flex;}.mob{display:flex;}
   section{padding:78px 28px;}
   #home{grid-template-columns:1fr;padding:106px 28px 60px;min-height:90vh;}.hero-right{display:none;}.hsh{left:28px;}
-  .cg{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto;}
-  .cc:nth-child(1){grid-column:span 2;grid-row:auto;}
-  .cc:nth-child(n){grid-column:span 1;grid-row:auto;}
-  .cci{min-height:230px;}
+  .curated-grid{grid-template-columns:1fr 1fr;}
+  .curated-card.large{grid-column:span 2;aspect-ratio:16/9;}
   .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto;}
   .gal-item:nth-child(n){grid-column:span 1;grid-row:auto;min-height:180px;}
   .strow{grid-template-columns:1fr 1fr;}.revg{grid-template-columns:1fr;}.svcg{grid-template-columns:1fr;}
@@ -583,6 +644,8 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
   .prod-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;}
 }
 @media(max-width:640px){
+  .curated-grid{grid-template-columns:1fr;}
+  .curated-card.large,.curated-card.small{grid-column:span 1;aspect-ratio:1;}
   .strow{grid-template-columns:1fr;}.statg{grid-template-columns:1fr;}
   .prod-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;}
 }
@@ -744,81 +807,73 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
      IMAGE: images/bangles.jpg         → card 4
      IMAGE: images/ring.jpg            → card 5
 ═══════════════════════════════════ -->
-<section id="collections" style="background:var(--ivory);">
-  <div class="chdr">
-    <div><div class="stag" data-rv>Our Jewellery</div><h2 class="stitle" data-rv data-d="100">Curated <em>Elegance</em></h2></div>
-    <a href="#contact" class="bg" data-rv="r" style="margin-bottom:8px;">View All →</a>
-  </div>
-  <div class="frow" data-rv data-d="200">
-    <button class="fb act" onclick="fc(this,'all')">All</button>
-    <button class="fb" onclick="fc(this,'necklace')">Necklaces</button>
-    <button class="fb" onclick="fc(this,'earring')">Earrings</button>
-    <button class="fb" onclick="fc(this,'ring')">Rings</button>
-    <button class="fb" onclick="fc(this,'bracelet')">Bracelets</button>
-    <button class="fb" onclick="fc(this,'set')">Full Sets</button>
-  </div>
-  <div class="cg">
-
-    <!-- CARD 1: Bridal Set — images/bridal-set.jpg -->
-    <div class="cc" data-cat="set">
-      <div class="cci"><div class="ca">
-        <img src="images/bridal-set.jpg"
-             alt="Bridal Signature Set — Rose Gold Plated Stainless Steel"
-             onerror="this.style.cssText='width:100%;height:100%;object-fit:cover;background:linear-gradient(148deg,#fce8d8,#f0d0b8,#e0b898)'"/>
-      </div></div>
-      <div class="csh"></div>
-      <div class="cinfo"><div class="cname">Bridal Signature Set</div><div class="cprice">from ₹799 · Rose Gold Plated</div></div>
-      <div class="cbadge">Bestseller</div><div class="cbtn">↗</div><div class="cnum">01</div>
+<section id="collections">
+  <div class="curated-container">
+    <div class="chdr">
+      <div>
+        <div class="stag" data-rv>Our Selection</div>
+        <h2 class="stitle" data-rv data-d="100">Curated <em>Elegance</em></h2>
+      </div>
+      <a href="#contact" class="bg" data-rv="r" style="margin-bottom:8px; text-decoration:none; color:var(--gold); font-size:var(--fs-xs); letter-spacing:2px; text-transform:uppercase;">View All Collections →</a>
     </div>
 
-    <!-- CARD 2: Necklace — images/necklace.jpg -->
-    <div class="cc" data-cat="necklace">
-      <div class="cci"><div class="ca">
-        <img src="images/necklace.jpg"
-             alt="Celestial Choker Necklace — Gold Plated"
-             onerror="this.style.cssText='width:100%;height:100%;object-fit:cover;background:linear-gradient(148deg,#e8f0f8,#d0e0f0,#b8cce0)'"/>
-      </div></div>
-      <div class="csh"></div>
-      <div class="cinfo"><div class="cname">Celestial Choker</div><div class="cprice">from ₹399 · Gold Plated</div></div>
-      <div class="cbtn">↗</div><div class="cnum">02</div>
-    </div>
+    <div class="curated-grid" data-rv>
+      
+      <!-- LARGE IMAGE: Bridal Statement Set (4:5 Ratio) -->
+      <div class="curated-card large" data-rv data-d="100">
+        <img src="images/neckless/bridal statement set.png" alt="Bridal Statement Set" loading="lazy">
+        <div class="curated-overlay">
+          <span class="curated-tag">Signature Series</span>
+          <h3 class="curated-title">Heritage Bridal<br>Statement Set</h3>
+          <span class="curated-price">Premium Gold Finish · ₹1,299</span>
+        </div>
+        <div class="curated-btn">↗</div>
+      </div>
 
-    <!-- CARD 3: Earrings — images/earrings.jpg -->
-    <div class="cc" data-cat="earring">
-      <div class="cci"><div class="ca">
-        <img src="images/earrings.jpg"
-             alt="Jhumka Drop Earrings — Rose Gold"
-             onerror="this.style.cssText='width:100%;height:100%;object-fit:cover;background:linear-gradient(148deg,#f8e8e0,#f0d0c0,#e0b8a0)'"/>
-      </div></div>
-      <div class="csh"></div>
-      <div class="cinfo"><div class="cname">Jhumka Drop Earrings</div><div class="cprice">from ₹299 · Rose Gold</div></div>
-      <div class="cbtn">↗</div><div class="cnum">03</div>
-    </div>
+      <!-- SMALL IMAGE 1: Heavy Jhumka (3:2 Ratio) -->
+      <div class="curated-card small" data-rv data-d="200">
+        <img src="images/earings/heavi,jhumka.jpg" alt="Heavy Jhumka" loading="lazy">
+        <div class="curated-overlay">
+          <span class="curated-tag">Traditional</span>
+          <h3 class="curated-title">Heavy Jhumka Drops</h3>
+          <span class="curated-price">From ₹499</span>
+        </div>
+        <div class="curated-btn">↗</div>
+      </div>
 
-    <!-- CARD 4: Bangles — images/bangles.jpg -->
-    <div class="cc" data-cat="bracelet">
-      <div class="cci"><div class="ca">
-        <img src="images/bangles.jpg"
-             alt="Floral Bangle Set — Set of 4"
-             onerror="this.style.cssText='width:100%;height:100%;object-fit:cover;background:linear-gradient(148deg,#e8f8e8,#d0f0d0,#b8e0b8)'"/>
-      </div></div>
-      <div class="csh"></div>
-      <div class="cinfo"><div class="cname">Floral Bangle Set</div><div class="cprice">from ₹449 · Set of 4</div></div>
-      <div class="cbadge">New</div><div class="cbtn">↗</div><div class="cnum">04</div>
-    </div>
+      <!-- SMALL IMAGE 2: Gold Bangles (3:2 Ratio) -->
+      <div class="curated-card small" data-rv data-d="300">
+        <img src="images/bangals/gold,bangals.png" alt="Gold Bangles" loading="lazy">
+        <div class="curated-overlay">
+          <span class="curated-tag">Essential</span>
+          <h3 class="curated-title">Royal Gold Bangles</h3>
+          <span class="curated-price">Set of 4 · ₹699</span>
+        </div>
+        <div class="curated-btn">↗</div>
+      </div>
 
-    <!-- CARD 5: Ring — images/ring.jpg -->
-    <div class="cc" data-cat="ring">
-      <div class="cci"><div class="ca">
-        <img src="images/ring.jpg"
-             alt="Solitaire Rose Ring — Adjustable"
-             onerror="this.style.cssText='width:100%;height:100%;object-fit:cover;background:linear-gradient(148deg,#f0e8f8,#e0d0f0,#d0b8e8)'"/>
-      </div></div>
-      <div class="csh"></div>
-      <div class="cinfo"><div class="cname">Solitaire Rose Ring</div><div class="cprice">from ₹349 · Adjustable</div></div>
-      <div class="cbtn">↗</div><div class="cnum">05</div>
-    </div>
+      <!-- SMALL IMAGE 3: Diamond Ring (3:2 Ratio) -->
+      <div class="curated-card small" data-rv data-d="400">
+        <img src="images/ring/dimond,ring.png" alt="Diamond Ring" loading="lazy">
+        <div class="curated-overlay">
+          <span class="curated-tag">Solitaire</span>
+          <h3 class="curated-title">Eternal Diamond Ring</h3>
+          <span class="curated-price">Adjustable · ₹399</span>
+        </div>
+        <div class="curated-btn">↗</div>
+      </div>
 
+      <!-- SMALL IMAGE 4: Long Earrings (3:2 Ratio) -->
+      <div class="curated-card small" data-rv data-d="500">
+        <img src="images/earings/long_earings.jpg" alt="Long Earrings" loading="lazy">
+        <div class="curated-overlay">
+          <span class="curated-tag">Modern elegance</span>
+          <h3 class="curated-title">Cascade Long Earrings</h3>
+          <span class="curated-price">Rose Gold · ₹549</span>
+        </div>
+        <div class="curated-btn">↗</div>
+      </div>
+    </div>
   </div>
 </section>
 
