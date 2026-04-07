@@ -461,10 +461,10 @@ section{padding:112px 72px;position:relative;z-index:1;}
 .stlbl{font-size:var(--fs-xs);letter-spacing:3px;text-transform:uppercase;color:var(--text2);}
 /* ABOUT VISUAL — real image */
 .abviz{position:relative;}
-.abfr{width:100%;height:520px;overflow:hidden;border:1px solid rgba(184,144,64,.14);position:relative;}
-.abfr::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(184,144,64,.4),transparent);z-index:2;}
-.abfr img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .8s var(--ease);}
-.abfr:hover img{transform:scale(1.04);}
+.abfr{width:100%;height:520px;overflow:hidden;border:1px solid rgba(184,144,64,.14);position:relative;border-radius:8px;box-shadow:0 20px 50px rgba(30,20,10,0.12);transition:all 0.5s var(--ease);}
+.abfr::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at center, transparent 30%, rgba(30,20,10,0.03) 100%);z-index:2;pointer-events:none;}
+.abfr img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.8s var(--ease);}
+.abfr:hover img{transform:scale(1.05);}
 .acr{position:absolute;width:20px;height:20px;border-color:var(--gold);border-style:solid;opacity:.35;z-index:3;}
 .acr.tl{top:14px;left:14px;border-width:1px 0 0 1px;}.acr.tr{top:14px;right:14px;border-width:1px 1px 0 0;}
 .acr.bl{bottom:14px;left:14px;border-width:0 0 1px 1px;}.acr.br{bottom:14px;right:14px;border-width:0 1px 1px 0;}
@@ -1047,9 +1047,9 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
       <div class="abfr">
         <div class="acr tl"></div><div class="acr tr"></div><div class="acr bl"></div><div class="acr br"></div>
         <!-- about.jpg: Use a beautiful close-up product or crafting/studio photo -->
-        <img src="images/about.jpg"
-             alt="Radiant Aura Jewellery Craftsmanship"
-             onerror="this.style.cssText='width:100%;height:100%;object-fit:cover;background:linear-gradient(148deg,#fceee6,#f3ead8)'"/>
+        <img src="images/neckless/bridal,gold set.png"
+             alt="Luxury Traditional Indian Bridal Jewellery Set"
+             loading="lazy">
       </div>
       <div class="abpr">
         <div class="apnum">4.9</div>
