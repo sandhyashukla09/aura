@@ -68,71 +68,185 @@ nav.sc{padding:16px 72px;background:rgba(253,249,244,.96);backdrop-filter:blur(2
 .mob a{font-family:'Playfair Display',serif;font-size:38px;color:var(--ink);text-decoration:none;letter-spacing:4px;transition:color .3s,letter-spacing .3s var(--ease);}
 .mob a:hover{color:var(--gold);letter-spacing:8px;}
 
-/* HERO */
-#home{min-height:100vh;position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 72px;overflow:hidden;z-index:1;}
-/* HERO BACKGROUND IMAGE */
-.hero-img-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
-.hero-img-bg img{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:58vw;max-width:840px;height:100vh;object-fit:cover;object-position:center;opacity:.92;}
-/* fallback overlay when no image */
-.hero-img-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--ivory) 0%,rgba(253,249,244,.6) 30%,transparent 60%);pointer-events:none;}
-.hero-glow{position:absolute;width:860px;height:860px;background:radial-gradient(ellipse at 60% 42%,rgba(184,144,64,.1) 0%,rgba(212,120,90,.06) 35%,rgba(200,160,96,.04) 62%,transparent 80%);top:50%;right:-50px;transform:translateY(-50%);pointer-events:none;animation:hg 5s ease-in-out infinite alternate;}
-@keyframes hg{from{opacity:.5;}to{opacity:1;}}
-.hp{position:absolute;border-radius:50%;animation:hp 7s ease-in-out infinite;top:50%;right:22%;transform:translate(50%,-50%);}
-.hp1{width:500px;height:500px;border:1px solid rgba(184,144,64,.08);}
-.hp2{width:720px;height:720px;border:1px solid rgba(212,120,90,.06);animation-delay:1.2s;}
-.hp3{width:940px;height:940px;border:1px solid rgba(184,144,64,.04);animation-delay:2.4s;}
-@keyframes hp{0%,100%{opacity:.5;transform:translate(50%,-50%) scale(1);}50%{opacity:.1;transform:translate(50%,-50%) scale(1.05);}}
-.hero-left{position:relative;z-index:2;padding-top:96px;}
-.hew{display:flex;align-items:center;gap:14px;font-size:var(--fs-xs);letter-spacing:5.5px;text-transform:uppercase;color:var(--gold);margin-bottom:32px;opacity:0;animation:sr 1s 1.8s var(--ease) forwards;}
-.hewl{width:0;height:1px;background:var(--gold);animation:el .9s 2.1s var(--ease) forwards;}
-@keyframes el{to{width:44px;}}@keyframes sr{from{opacity:0;transform:translateX(-22px);}to{opacity:1;transform:none;}}
-.htitle{font-family:'Playfair Display',serif;font-size:var(--fs-hero);line-height:.93;font-weight:400;margin-bottom:36px;letter-spacing:-1px;}
-.htitle .hl{display:block;overflow:hidden;}
-.htitle .hl span{display:block;opacity:0;transform:translateY(105%);animation:lr 1s var(--ease) forwards;}
-.htitle .hl:nth-child(1) span{animation-delay:2s;color:var(--ink);}
-.htitle .hl:nth-child(2) span{animation-delay:2.18s;color:var(--ink);}
-.htitle .hl:nth-child(3) span{animation-delay:2.36s;color:var(--rose);font-style:italic;}
-@keyframes lr{from{opacity:0;transform:translateY(105%);}to{opacity:1;transform:none;}}
-.hdesc{font-size:var(--fs-md);line-height:2.1;color:var(--text);max-width:420px;margin-bottom:50px;opacity:0;animation:fu 1s 2.8s var(--ease) forwards;}
-.hact{display:flex;gap:22px;align-items:center;opacity:0;animation:fu 1s 3s var(--ease) forwards;}
-.bp{position:relative;background:var(--gold);color:var(--white);padding:18px 42px;font-size:var(--fs-xs);letter-spacing:3.5px;text-transform:uppercase;text-decoration:none;font-family:'Raleway',sans-serif;font-weight:600;overflow:hidden;display:inline-flex;align-items:center;gap:12px;transition:box-shadow .4s;}
-.bp::before{content:'';position:absolute;inset:0;background:var(--gold-l);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);}
-.bp:hover{box-shadow:0 0 40px rgba(184,144,64,.28);}.bp:hover::before{transform:scaleX(1);}
-.bp span,.bp .ba{position:relative;z-index:1;}.bp .ba{transition:transform .3s var(--ease);}.bp:hover .ba{transform:translateX(7px);}
-.bg{color:var(--text);font-size:var(--fs-xs);letter-spacing:3px;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:8px;position:relative;transition:color .3s;}
-.bg::after{content:'';position:absolute;bottom:-3px;left:0;width:100%;height:1px;background:currentColor;transform:scaleX(.28);transform-origin:left;transition:transform .35s var(--ease);}
-.bg:hover{color:var(--gold);}.bg:hover::after{transform:scaleX(1);}
-.hero-right{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;padding-top:96px;}
-.hv{width:500px;height:560px;position:relative;opacity:0;animation:fi 1.6s 2s var(--ease) forwards;}
+/* BRIDAL HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--ink);
+}
 
-/* HERO CARD — now uses real image */
-.hcard{position:absolute;width:320px;height:420px;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-3.5deg);overflow:hidden;border:1px solid rgba(184,144,64,.22);box-shadow:0 48px 96px rgba(30,20,10,.18),0 0 48px rgba(184,144,64,.08);animation:cf 9s ease-in-out infinite;}
-@keyframes cf{0%,100%{transform:translate(-50%,-50%) rotate(-3.5deg) translateY(0);}50%{transform:translate(-50%,-50%) rotate(-3.5deg) translateY(-16px);}}
-.hcard img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
-/* gold shimmer overlay on card */
-.hcard::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 20%,rgba(184,144,64,.1) 0%,transparent 70%);z-index:1;pointer-events:none;}
-.hcard::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(184,144,64,.5),rgba(200,96,74,.3),transparent);z-index:2;}
+.hero-bg-parallax {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
 
-.orb{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);animation:os 32s linear infinite;}
-.orb.o1{width:380px;height:380px;border:1px dashed rgba(184,144,64,.1);}
-.orb.o2{width:510px;height:510px;border:1px dashed rgba(200,160,96,.07);animation-duration:54s;animation-direction:reverse;}
-.orb.o3{width:640px;height:640px;border:1px dashed rgba(184,144,64,.05);animation-duration:78s;}
-.orb.o1::before{content:'✦';position:absolute;top:-9px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--champ);opacity:.5;}
-@keyframes os{to{transform:translate(-50%,-50%) rotate(360deg);}}
-.fc{position:absolute;background:rgba(253,249,244,.96);border:1px solid rgba(184,144,64,.18);padding:14px 20px;font-size:11px;color:var(--text);backdrop-filter:blur(16px);box-shadow:0 20px 44px rgba(30,20,10,.1);}
-.fc.f1{top:7%;right:0;animation:ff1 5.2s ease-in-out infinite;}
-.fc.f2{bottom:17%;left:0;animation:ff2 6.4s ease-in-out infinite;}
-.fc.f3{top:42%;right:-14px;animation:ff1 7.5s ease-in-out infinite reverse;}
-@keyframes ff1{0%,100%{transform:translateY(0) rotate(.4deg);}50%{transform:translateY(-12px) rotate(-.4deg);}}
-@keyframes ff2{0%,100%{transform:translateY(0) rotate(-.4deg);}50%{transform:translateY(-10px) rotate(.4deg);}}
-.fc-lbl{color:var(--gold);font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
-.fc-val{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink2);}
-.fdot{display:inline-block;width:6px;height:6px;background:var(--rose);border-radius:50%;margin-right:6px;animation:blink 2s infinite;}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:.15;}}
-.hsh{position:absolute;bottom:36px;left:72px;display:flex;align-items:center;gap:14px;font-size:var(--fs-xs);letter-spacing:4px;text-transform:uppercase;color:var(--text2);opacity:0;animation:fi 1s 3.5s forwards;}
-.hst{width:1px;height:52px;background:rgba(184,144,64,.14);position:relative;overflow:hidden;}
-.hst::after{content:'';position:absolute;top:-100%;width:100%;height:100%;background:linear-gradient(to bottom,transparent,var(--gold));animation:sd 2.2s ease-in-out infinite;}
-@keyframes sd{0%{top:-100%;}100%{top:100%;}}
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.1);
+  filter: brightness(0.7);
+  animation: heroBgZoom 20s linear infinite alternate;
+}
+
+@keyframes heroBgZoom {
+  to { transform: scale(1); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(30, 20, 10, 0.4), rgba(30, 20, 10, 0.8));
+  z-index: 1;
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 72px;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-tagline {
+  font-size: var(--fs-xs);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 8vw, 100px);
+  line-height: 1;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 32px;
+  letter-spacing: -1px;
+}
+
+.hero-title em {
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  color: var(--gold-xl);
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: var(--fs-lg);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 500px;
+  margin-bottom: 48px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.btn {
+  padding: 18px 42px;
+  font-size: var(--fs-xs);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.4s var(--ease);
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--gold-l);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(184, 144, 64, 0.3);
+}
+
+.btn-text {
+  color: var(--white);
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-text:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  padding-left: 10px;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: var(--gold);
+  animation: scrollAnim 2s ease-in-out infinite;
+}
+
+@keyframes scrollAnim {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(300%); }
+}
+
+.scroll-text {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-side-text {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-size: 10px;
+  letter-spacing: 8px;
+  color: rgba(255, 255, 255, 0.3);
+  z-index: 2;
+}
 
 /* MARQUEE */
 .mq-wrap{position:relative;z-index:1;overflow:hidden;border-top:1px solid rgba(184,144,64,.12);border-bottom:1px solid rgba(184,144,64,.12);padding:18px 0;background:var(--ivory2);}
@@ -519,50 +633,37 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
 </nav>
 
 <!-- ═══════════════════════════════════
-     HERO SECTION
-     IMAGE: images/hero-bg.jpg  (full jewellery display/lifestyle photo)
-     IMAGE: images/hero-card.jpg (single featured piece for floating card)
+     BRIDAL HERO SECTION
+     IMAGE: images/bridal-hero-new.jpg (Generated luxury bridal visual)
 ═══════════════════════════════════ -->
-<section id="home">
-  <div class="hp hp1"></div><div class="hp hp2"></div><div class="hp hp3"></div>
-  <div class="hero-glow"></div>
-
-  <!-- HERO BACKGROUND: Replace hero-bg.jpg with your main jewellery lifestyle/collection photo -->
-  <div class="hero-img-bg">
-    <img src="images/hero-bg.jpg"
-         alt="Radiant Aura Premium Imitation Jewellery Collection"
-         onerror="this.style.display='none'"/>
+<section id="home" class="hero">
+  <div class="hero-bg-parallax">
+    <img src="images/bridal-hero-new.jpg" alt="Bridal Jewellery Collection" class="hero-bg-img">
+    <div class="hero-overlay"></div>
   </div>
-
-  <div class="hero-left">
-    <div class="hew"><span class="hewl"></span>Premium Imitation Jewellery</div>
-    <h1 class="htitle">
-      <span class="hl"><span>Jewellery That</span></span>
-      <span class="hl"><span>Honours Every</span></span>
-      <span class="hl"><span>Occasion</span></span>
-    </h1>
-    <p class="hdesc">Stainless steel jewellery that looks like fine gold — hypoallergenic, tarnish-proof, and made for the modern Indian woman. Bridal sets, festive pieces, and meaningful gifts. Starting at ₹299.</p>
-    <div class="hact">
-      <a href="#collections" class="bp"><span>Explore Collections</span><span class="ba">→</span></a>
-      <a href="#ai-stylist" class="bg">Find Your Style ↗</a>
-    </div>
-  </div>
-
-  <!-- HERO RIGHT: Replace hero-card.jpg with your best single product photo (necklace/bridal set) -->
-  <div class="hero-right">
-    <div class="hv">
-      <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
-      <div class="hcard">
-        <img src="images/hero-card.jpg"
-             alt="Rose Gold Bridal Set — Radiant Aura"
-             onerror="this.style.background='linear-gradient(148deg,#fce8d8,#f0d0b8)'"/>
+  
+  <div class="hero-content-wrapper">
+    <div class="hero-content">
+      <div class="hero-tagline" data-rv>The Art of Celebration</div>
+      <h1 class="hero-title" data-rv data-d="200">
+        Bridal Jewellery<br><em>Collection</em>
+      </h1>
+      <p class="hero-subtitle" data-rv data-d="400">
+        Make your special day unforgettable with timeless elegance. Handcrafted pieces designed for the modern bride.
+      </p>
+      <div class="hero-actions" data-rv data-d="600">
+        <a href="#collections" class="btn btn-primary">Shop Now</a>
+        <a href="#gallery" class="btn btn-text">View Lookbook ↗</a>
       </div>
-      <div class="fc f1"><div class="fc-lbl"><span class="fdot"></span>New Arrival</div><div class="fc-val">Rose Gold Bridal Set</div></div>
-      <div class="fc f2"><div class="fc-lbl">Top Seller</div><div class="fc-val">2,800+ Orders</div></div>
-      <div class="fc f3"><div class="fc-lbl">Starting From</div><div class="fc-val">₹299</div></div>
     </div>
   </div>
-  <div class="hsh"><div class="hst"></div>Scroll to Explore</div>
+
+  <div class="hero-scroll-indicator">
+    <span class="scroll-line"></span>
+    <span class="scroll-text">Scroll to explore</span>
+  </div>
+  
+  <div class="hero-side-text">ESTD 2024</div>
 </section>
 
 <!-- MARQUEE -->
