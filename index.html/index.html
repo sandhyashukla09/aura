@@ -1397,6 +1397,33 @@ window.addEventListener('scroll',()=>{
   prodItems.forEach(item=>{
     const imagePath=item.dataset.image;
     const imageTitle=item.dataset.title;
+    
+    // Mapping for auto-assigning IDs based on image paths
+    const idMap = {
+      'neckless/beidal,multi.set.webp': 'bridal-multi-set',
+      'neckless/bridal statement set.png': 'bridal-statement-set',
+      'neckless/bridal,gold set.png': 'bridal-gold-set',
+      'neckless/celestial choker.jpg': 'celestial-choker',
+      'neckless/collection_jwellery.png': 'collection-jewellery',
+      'neckless/dimond,set.png': 'diamond-set-necklace',
+      'neckless/ethnic,set.png': 'ethnic-set',
+      'neckless/festivl,necklac.jpg': 'festive-necklace',
+      'neckless/multicolor_set.png': 'multicolor-set',
+      'neckless/rose,gold,set.jpg': 'rose-gold-set',
+      'earings/dimonds_earings.png': 'diamond-earrings',
+      'earings/heavi,jhumka.jpg': 'heavy-jhumka',
+      'earings/light,earing.png': 'light-earrings',
+      'earings/long_earings.jpg': 'long-earrings',
+      'earings/mini aring.png': 'mini-aring',
+      'earings/miniround_earings.png': 'mini-round-earrings',
+      'earings/sheaded_earings.png': 'shaded-earrings',
+      'bangals/floral,bangl,set.webp': 'floral-bangle-set',
+      'bangals/gold,bangals.png': 'gold-bangles',
+      'ring/dimond,ring.png': 'diamond-ring',
+      'ring/gold,nose,ring.webp': 'gold-nose-ring'
+    };
+    const productId=item.dataset.id || idMap[imagePath];
+
     if(imagePath){
       const img=document.createElement('img');
       img.loading='lazy';
@@ -1412,16 +1439,42 @@ window.addEventListener('scroll',()=>{
       };
       item.innerHTML='';
       item.appendChild(img);
+      
+      // Add info overlay
+      const info = document.createElement('div');
+      info.className = 'prod-info';
+      info.style.cssText = 'position:absolute;bottom:0;left:0;right:0;padding:25px 20px;background:linear-gradient(to top,rgba(30,20,10,0.9),transparent);color:var(--white);opacity:0;transition:opacity 0.4s var(--ease);z-index:5;';
+      info.innerHTML = `<div style="font-family:\'Playfair Display\',serif;font-size:14px;letter-spacing:1px;margin-bottom:4px;">${imageTitle}</div><div style="font-size:9px;color:var(--gold-xl);letter-spacing:2px;text-transform:uppercase;font-weight:600;">View Details →</div>`;
+      item.appendChild(info);
+      
+      item.addEventListener('mouseenter', () => info.style.opacity = '1');
+      item.addEventListener('mouseleave', () => info.style.opacity = '0');
+      
       item.setAttribute('data-title',imageTitle);
+      
+      item.addEventListener('click', function() {
+        if(productId) {
+          window.location.href = `products/${productId}.html`;
+        }
+      });
     }
   });
-  
-  /* Add click animation */
-  prodItems.forEach(item=>{
-    item.addEventListener('click',function(){
-      this.style.animation='none';
-      setTimeout(()=>this.style.animation='',10);
-    });
+
+  // Link curated cards
+  const curatedMap = {
+    'Heritage Bridal\nStatement Set': 'bridal-multi-set',
+    'Heavy Jhumka Drops': 'heavy-jhumka',
+    'Royal Gold Bangles': 'gold-bangles',
+    'Eternal Diamond Ring': 'diamond-ring',
+    'Cascade Long Earrings': 'long-earrings'
+  };
+
+  document.querySelectorAll('.curated-card').forEach(card => {
+    const titleEl = card.querySelector('.curated-title');
+    if (titleEl) {
+      const id = curatedMap[titleEl.innerText];
+      if (id) card.addEventListener('click', () => window.location.href = `products/${id}.html`);
+    }
   });
 })();
 
@@ -1439,7 +1492,6 @@ if('IntersectionObserver' in window){
       }
     });
   });
-  
   document.querySelectorAll('img[loading="lazy"]').forEach(img=>imgObserver.observe(img));
 }
 </script>

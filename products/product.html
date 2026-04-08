@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title id="page-title">Product Name — Radiant Aura</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@200;300;400;500;600&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+/* CSS VARIABLES FROM INDEX.HTML */
+:root{
+  --ivory:#fdf9f4; --ivory2:#f9f3ea; --ivory3:#f3ead8;
+  --blush:#fceee6; --blush2:#f5d8c8; --blush3:#ebbfa6;
+  --rose:#d4785a; --rose2:#c0604a; --rose3:#a84838;
+  --gold:#b89040; --gold-l:#cfa84e; --gold-xl:#e8c870; --gold-lux:#C5A47E;
+  --champ:#c8a060; --champ2:#dbb878; --champ3:#f0d098;
+  --warm:#8a6840; --warm2:#a88050; --warm3:#c09868;
+  --stone:#685840; --stone2:#8a7858; --stone3:#b09878;
+  --ink:#1e140a; --ink2:#2e200e; --ink3:#403020;
+  --text:#6a5840; --text2:#8a7058; --text3:#b09880;
+  --white:#ffffff; --offwhite:#fefcf8;
+  --ease:cubic-bezier(0.16,1,0.3,1); --ease2:cubic-bezier(0.34,1.56,0.64,1);
+  --fs-xs:9px; --fs-sm:11px; --fs-md:14px; --fs-lg:18px;
+  --fs-xl:clamp(38px,4.2vw,68px); 
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--ivory);color:var(--ink);font-family:'Raleway',sans-serif;font-weight:300;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+.ra-icon { width: 1em; height: 1em; stroke: var(--gold-lux); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; fill: none; display: inline-block; vertical-align: middle; }
+
+/* NAV REUSED */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:24px 72px;transition:all .5s var(--ease);background:rgba(253,249,244,0.8);backdrop-filter:blur(10px);}
+nav.sc{padding:16px 72px;background:rgba(253,249,244,.96);box-shadow:0 1px 0 rgba(184,144,64,.12);}
+.nl{font-family:'Playfair Display',serif;font-size:24px;letter-spacing:8px;color:var(--gold);text-decoration:none;}
+.nls{display:flex;gap:32px;list-style:none;}
+.nls a{color:var(--text);text-decoration:none;font-size:var(--fs-xs);letter-spacing:2px;text-transform:uppercase;}
+.ncta{border:1.5px solid var(--gold);color:var(--gold);padding:8px 22px;font-size:var(--fs-xs);letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .4s var(--ease);}
+.ncta:hover{background:var(--gold);color:var(--white);}
+
+/* PRODUCT PAGE LAYOUT */
+.p-main{padding-top:140px;max-width:1400px;margin:0 auto;padding-left:72px;padding-right:72px;}
+.p-grid{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start;margin-bottom:112px;}
+
+/* IMAGE GALLERY */
+.pgal{display:flex;flex-direction:column;gap:20px;position:sticky;top:140px;}
+.pm-img-wrap{aspect-ratio:4/5;background:var(--ivory2);border-radius:12px;overflow:hidden;position:relative;cursor:crosshair;}
+.pm-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease);}
+.pm-img-wrap:hover img{transform:scale(1.25);}
+.pthmbs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.pthmb{aspect-ratio:1;border-radius:6px;overflow:hidden;border:1px solid transparent;cursor:pointer;transition:all .3s;}
+.pthmb.act{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold);}
+.pthmb img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* PRODUCT INFO */
+.pinfo{display:flex;flex-direction:column;}
+.ptag{font-size:var(--fs-xs);letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.pname{font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,52px);line-height:1.1;color:var(--ink);margin-bottom:20px;}
+.prating{display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+.pstars{color:var(--gold);letter-spacing:3px;font-size:16px;}
+.prevs{font-size:var(--fs-xs);color:var(--text2);letter-spacing:1px;text-transform:uppercase;}
+.pprice{display:flex;align-items:baseline;gap:16px;margin-bottom:44px;}
+.pcurr{font-family:'Playfair Display',serif;font-size:38px;color:var(--ink2);}
+.pold{font-size:18px;color:var(--text3);text-decoration:line-through;}
+.pdisc{background:var(--rose3);color:var(--white);font-size:10px;padding:3px 10px;border-radius:30px;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+
+.pactions{display:flex;gap:16px;margin-bottom:60px;}
+.pbtn{flex:1;padding:20px;font-size:var(--fs-sm);letter-spacing:3px;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;transition:all .4s var(--ease);}
+.btn-atc{background:var(--gold);color:var(--white);outline:none;}
+.btn-atc:hover{background:var(--gold-l);transform:translateY(-3px);box-shadow:0 12px 30px rgba(184,144,64,0.3);}
+.btn-bn{background:transparent;border:1.5px solid var(--ink);color:var(--ink);}
+.btn-bn:hover{background:var(--ink);color:var(--white);transform:translateY(-3px);}
+
+/* TABS / SECTIONS */
+.pdetails{border-top:1px solid rgba(184,144,64,.15);padding-top:48px;}
+.pd-sec{margin-bottom:52px;}
+.pd-title{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:18px;color:var(--ink2);display:flex;align-items:center;gap:12px;}
+.pd-title::after{content:'';height:1px;flex:1;background:linear-gradient(to right,rgba(184,144,64,.25),transparent);}
+.pd-desc{font-size:15px;color:var(--text);line-height:2.1;margin-bottom:32px;font-family:'Libre Baskerville',serif;font-style:italic;}
+.p-feats{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.p-feat{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:var(--text2);}
+.p-feat::before{content:'✦';color:var(--gold);font-size:10px;margin-top:2px;}
+
+.ptrust{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:20px;}
+.ptr-itm{background:var(--white);padding:32px 20px;text-align:center;border:1px solid rgba(184,144,64,.12);transition:all .3s;}
+.ptr-itm:hover{border-color:var(--gold-l);transform:translateY(-5px);box-shadow:0 10px 25px rgba(30,20,10,0.05);}
+.ptr-ico{font-size:24px;margin-bottom:12px;display:block;}
+.ptr-lbl{font-size:var(--fs-xs);letter-spacing:2px;text-transform:uppercase;color:var(--text2);}
+
+/* REVIEWS */
+.rev-sec{padding:112px 72px;background:var(--ivory2);border-top:1px solid rgba(184,144,64,.1);}
+.rev-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;max-width:1256px;margin-inline:auto;}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1256px;margin:0 auto;}
+.rev-card{background:var(--white);padding:42px;border:1px solid rgba(184,144,64,.1);border-radius:12px;position:relative;}
+.rev-txt{font-family:'Libre Baskerville',serif;font-style:italic;font-size:16px;color:var(--ink2);margin-bottom:28px;}
+.rev-auth{display:flex;align-items:center;gap:14px;}
+.rev-avt{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--rose));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:600;font-size:14px;}
+.rev-name{font-size:14px;color:var(--ink);font-weight:600;}
+.rev-date{font-size:11px;color:var(--text3);margin-top:2px;}
+
+/* RELATED */
+.rel-sec { padding: 112px 72px; background: var(--ivory); }
+.rel-hdr { text-align: center; margin-bottom: 64px; }
+.rel-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1256px; margin: 0 auto; }
+.prod-item { position: relative; overflow: hidden; background: var(--ivory3); border: 1px solid rgba(184,144,64, .12); aspect-ratio: 1/1.2; cursor: pointer; transition: all .35s var(--ease); }
+.prod-item:hover { border-color: rgba(184,144,64, .35); transform: translateY(-6px); box-shadow: 0 12px 32px rgba(30, 20, 10, .12); }
+.prod-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--ease); }
+.prod-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(20, 10, 4, 0.8), transparent); color: var(--white); opacity: 0; transition: opacity 0.3s; }
+.prod-item:hover .prod-info { opacity: 1; }
+.prod-name { font-family: 'Playfair Display', serif; font-size: 14px; }
+
+/* STICKY CTA */
+.scta{position:fixed;bottom:0;left:0;right:0;background:var(--white);padding:16px 72px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 -4px 30px rgba(30,20,10,0.05);z-index:400;transform:translateY(100%);transition:transform .5s var(--ease);}
+.scta.vis{transform:translateY(0);}
+.scta-info{display:flex;align-items:center;gap:20px;}
+.scta-img{width:48px;height:60px;object-fit:cover;border-radius:4px;}
+.scta-txt{display:flex;flex-direction:column;}
+.scta-name{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);}
+.scta-price{font-size:14px;color:var(--gold);font-weight:700;}
+
+/* CTA BANNER */
+.cta-banner{background:var(--ink);color:var(--white);padding:80px 72px;text-align:center;overflow:hidden;position:relative;}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center, rgba(184,144,64,0.1) 0%, transparent 70%);}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,52px);margin-bottom:24px;position:relative;z-index:1;}
+.cta-sub{color:var(--gold-l);letter-spacing:3px;text-transform:uppercase;font-size:12px;margin-bottom:44px;display:block;}
+.cta-btn{display:inline-block;background:var(--gold);color:var(--white);padding:20px 48px;text-decoration:none;font-weight:700;letter-spacing:4px;text-transform:uppercase;transition:all .4s;}
+.cta-btn:hover{background:var(--gold-xl);color:var(--ink);transform:scale(1.05);}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--text3);padding:88px 72px 42px;}
+.ftg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:62px;margin-bottom:70px;}
+.fbn{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);letter-spacing:6px;margin-bottom:18px;}
+.fct{font-size:var(--fs-xs);letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
+.fll{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.fll a{font-size:13px;color:var(--text2);text-decoration:none;transition:color .3s;}
+.fll a:hover{color:var(--white);}
+.ftb { border-top: 1px solid rgba(184, 144, 64, 0.08); padding-top: 28px; display: flex; justify-content: space-between; font-size: 10px; }
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .p-grid{grid-template-columns:1fr;gap:60px;}
+  .p-main{padding-left:28px;padding-right:28px;}
+  .pgal{position:static;}
+  .rev-grid{grid-template-columns:1fr 1fr;}
+  .rel-grid{grid-template-columns:1fr 1fr 1fr;}
+}
+@media(max-width:768px){
+  nav{padding:20px 28px;}
+  .nls{display:none;}
+  .rev-grid,.rel-grid{grid-template-columns:1fr 1fr;}
+  .ptrust{grid-template-columns:1fr;}
+  .pactions{flex-direction:column;}
+  .scta{padding:12px 28px;}
+  .ftg{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .rel-grid{grid-template-columns:1fr;}
+  .ftg{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="../index.html/index.html" class="nl">RADIANT<sup>AURA</sup></a>
+  <ul class="nls">
+    <li><a href="../index.html/index.html#collections">Collections</a></li>
+    <li><a href="../index.html/index.html#about">About</a></li>
+    <li><a href="../index.html/index.html#contact">Contact</a></li>
+  </ul>
+  <a href="../index.html/index.html#contact" class="ncta">Shop Now</a>
+</nav>
+
+<main class="p-main" id="product-content">
+  <!-- Dynamic Content Injected Here -->
+</main>
+
+<section class="rev-sec">
+  <div class="rev-hdr">
+    <div>
+      <div class="ptag">Testimonials</div>
+      <h2 class="pname" style="font-size:32px;">Voices of <em>Radiant Aura</em></h2>
+    </div>
+    <div style="text-align:right;">
+      <div class="pstars">★★★★★</div>
+      <div class="prevs">Based on 1,400+ reviews</div>
+    </div>
+  </div>
+  <div class="rev-grid">
+    <div class="rev-card">
+      <div class="pstars" style="font-size:12px;margin-bottom:15px;">★★★★★</div>
+      <p class="rev-txt">"Absolutely stunning. The quality of the stainless steel and the gold plating is incredible. It looks like a heritage piece from a luxury jeweler."</p>
+      <div class="rev-auth">
+        <div class="rev-avt">A</div>
+        <div>
+          <div class="rev-name">Anjali Singh</div>
+          <div class="rev-date">Verified Buyer · 2 days ago</div>
+        </div>
+      </div>
+    </div>
+    <div class="rev-card">
+      <div class="pstars" style="font-size:12px;margin-bottom:15px;">★★★★★</div>
+      <p class="rev-txt">"Bought this for my wedding reception and everyone thought it was real gold. The weight is perfect and it's extremely comfortable to wear."</p>
+      <div class="rev-auth">
+        <div class="rev-avt">M</div>
+        <div>
+          <div class="rev-name">Meera Kapoor</div>
+          <div class="rev-date">Verified Buyer · 1 week ago</div>
+        </div>
+      </div>
+    </div>
+    <div class="rev-card">
+      <div class="pstars" style="font-size:12px;margin-bottom:15px;">★★★★★</div>
+      <p class="rev-txt">"Radiant Aura never disappoints. The packaging was beautiful and the product is even better than the pictures. Zero tarnishing after months!"</p>
+      <div class="rev-auth">
+        <div class="rev-avt">R</div>
+        <div>
+          <div class="rev-name">Rashi Verma</div>
+          <div class="rev-date">Verified Buyer · 3 weeks ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rel-sec">
+  <div class="rel-hdr">
+    <div class="ptag">You May Also Like</div>
+    <h2 class="pname" style="font-size:32px;">Related <em>Treasures</em></h2>
+  </div>
+  <div class="rel-grid" id="related-grid">
+    <!-- Related items injected here -->
+  </div>
+</section>
+
+<div class="cta-banner">
+  <span class="cta-sub">Limited Time Offer</span>
+  <h2 class="cta-title">Cherish the Elegance.<br>Only a few pieces left!</h2>
+  <a href="../index.html/index.html#contact" class="cta-btn">Buy It Now</a>
+</div>
+
+<div class="scta" id="sticky-cta">
+  <div class="scta-info">
+    <img src="" alt="" class="scta-img" id="scta-img">
+    <div class="scta-txt">
+      <span class="scta-name" id="scta-name">Product Name</span>
+      <span class="scta-price" id="scta-price">₹0</span>
+    </div>
+  </div>
+  <button class="pbtn btn-atc" style="flex:none;width:240px;padding:15px;">Add to Cart</button>
+</div>
+
+<footer>
+  <div class="ftg">
+    <div>
+      <div class="fbn">RADIANT<br><span style="font-size:16px;letter-spacing:10px;opacity:.7;">AURA</span></div>
+      <p style="font-size:13px;line-height:2;max-width:300px;">Crafting premium imitation jewellery with the soul of gold. Hypoallergenic, tarnish-proof, and timeless.</p>
+    </div>
+    <div><div class="fct">Quick Links</div><ul class="fll"><li><a href="../index.html/index.html">Home</a></li><li><a href="../index.html/index.html#collections">Collections</a></li><li><a href="../index.html/index.html#about">About</a></li></ul></div>
+    <div><div class="fct">Policy</div><ul class="fll"><li><a href="#">Shipping</a></li><li><a href="#">Returns</a></li><li><a href="#">Privacy</a></li></ul></div>
+    <div><div class="fct">Help</div><ul class="fll"><li><a href="#">Care Guide</a></li><li><a href="#">Contact</a></li><li><a href="#">FAQs</a></li></ul></div>
+  </div>
+  <div class="ftb">
+    <span>© 2025 Radiant Aura. All rights reserved.</span>
+    <span>Handcrafted in India</span>
+  </div>
+</footer>
+
+<script src="../js/products.js"></script>
+<script>
+// PRODUCT PAGE LOGIC
+function loadProduct() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  
+  if (!window.productData) {
+    console.error("Product data not found!");
+    return;
+  }
+  
+  const p = window.productData.find(item => item.id === id) || window.productData[0];
+  
+  // Set window title
+  document.getElementById('page-title').textContent = `${p.name} — Radiant Aura`;
+  
+  // Set Sticky CTA
+  document.getElementById('scta-img').src = `../images/${p.image}`;
+  document.getElementById('scta-name').textContent = p.name;
+  document.getElementById('scta-price').textContent = `₹${p.price.toLocaleString()}`;
+
+  // Update Main Content
+  const main = document.getElementById('product-content');
+  main.innerHTML = `
+    <div class="p-grid">
+      <div class="pgal">
+        <div class="pm-img-wrap" id="main-img-wrap">
+          <img src="../images/${p.image}" alt="${p.name}" id="main-img">
+        </div>
+        <div class="pthmbs">
+          ${p.thumbnails.map((t, index) => `
+            <div class="pthmb ${index === 0 ? 'act' : ''}" onclick="changeImg('${t}', this)">
+              <img src="../images/${t}" alt="Thumbnail ${index + 1}">
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      
+      <div class="pinfo">
+        <div class="ptag">${p.category}</div>
+        <h1 class="pname">${p.name}</h1>
+        <div class="prating">
+          <div class="pstars">${'★'.repeat(Math.floor(p.rating))}${p.rating % 1 !== 0 ? '½' : ''}</div>
+          <div class="prevs">${p.reviews} Verified Reviews</div>
+        </div>
+        <div class="pprice">
+          <span class="pcurr">₹${p.price.toLocaleString()}</span>
+          ${p.originalPrice ? `<span class="pold">₹${p.originalPrice.toLocaleString()}</span>` : ''}
+          ${p.originalPrice ? `<span class="pdisc">SAVE ${Math.round((1 - p.price/p.originalPrice)*100)}%</span>` : ''}
+        </div>
+        
+        <div class="pactions">
+          <button class="pbtn btn-atc" onclick="atc()">Add to Cart</button>
+          <button class="pbtn btn-bn" onclick="atc()">Buy Now</button>
+        </div>
+        
+        <div class="pdetails">
+          <div class="pd-sec">
+             <h3 class="pd-title">Story & Craft</h3>
+             <p class="pd-desc">${p.description}</p>
+          </div>
+          <div class="pd-sec">
+             <h3 class="pd-title">Key Features</h3>
+             <ul class="p-feats">
+               ${p.features.map(f => `<li class="p-feat">${f}</li>`).join('')}
+             </ul>
+          </div>
+          <div class="pd-sec">
+             <h3 class="pd-title">Material Details</h3>
+             <p style="font-size:13px; color:var(--text);">${p.material} · ${p.weight || 'N/A'}</p>
+          </div>
+          
+          <div class="ptrust">
+            <div class="ptr-itm"><span class="ptr-ico">✓</span><span class="ptr-lbl">100% Authentic</span></div>
+            <div class="ptr-itm"><span class="ptr-ico">↺</span><span class="ptr-lbl">Easy Returns</span></div>
+            <div class="ptr-itm"><span class="ptr-ico">🔒</span><span class="ptr-lbl">Secure Payment</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  // Load Related
+  const relGrid = document.getElementById('related-grid');
+  const related = window.productData.filter(item => item.category === p.category && item.id !== p.id).slice(0, 4);
+  relGrid.innerHTML = related.map(r => `
+    <div class="prod-item" onclick="window.location.href='product.html?id=${r.id}'">
+      <img src="../images/${r.image}" alt="${r.name}">
+      <div class="prod-info">
+        <div class="prod-name">${r.name}</div>
+        <div style="font-size:12px; color:var(--gold);">₹${r.price}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function changeImg(src, el) {
+  document.getElementById('main-img').src = `../images/${src}`;
+  document.querySelectorAll('.pthmb').forEach(t => t.classList.remove('act'));
+  el.classList.add('act');
+}
+
+function atc() {
+  alert("Item added to cart! (Demo Only)");
+}
+
+// Scroll effects
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  nav.classList.toggle('sc', window.scrollY > 60);
+  
+  const scta = document.getElementById('sticky-cta');
+  scta.classList.toggle('vis', window.scrollY > 800);
+});
+
+// Run
+window.onload = loadProduct;
+</script>
+
+</body>
+</html>
