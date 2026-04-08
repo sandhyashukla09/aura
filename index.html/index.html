@@ -909,25 +909,163 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
      Auto-loading images from respective folders with responsive grid
 ═══════════════════════════════════ -->
 
-<!-- NECKLACES SECTION -->
-<section id="necklaces-gallery" style="background:var(--ivory);border-top:1px solid rgba(184,144,64,.1);">
-  <div class="prod-sec-hdr" data-rv>
-    <div class="stag">Necklaces Collection</div>
+<!-- ELEGANT NECKLACES SECTION -->
+<style>
+.elegant-necklace-card {
+  background: var(--white);
+  border: 1px solid rgba(184,144,64, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.5s var(--ease);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.elegant-necklace-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(30,20,10,0.12);
+  border-color: var(--gold);
+}
+.necklace-img-wrap {
+  aspect-ratio: 533/800;
+  overflow: hidden;
+  position: relative;
+  background: var(--ivory2);
+}
+.necklace-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+.elegant-necklace-card:hover .necklace-img-wrap img {
+  transform: scale(1.1);
+}
+.necklace-content {
+  padding: 30px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.necklace-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.necklace-desc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  min-height: 42px;
+}
+.necklace-price {
+  font-size: 18px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+.view-details-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: var(--gold);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+.view-details-btn:hover {
+  background: var(--gold-l);
+  box-shadow: 0 10px 20px rgba(184,144,64,0.2);
+}
+@media(max-width:1100px){
+  #elegant-necklaces { padding: 80px 28px !important; }
+  #elegant-necklaces .prod-grid { grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
+}
+@media(max-width:640px){
+  #elegant-necklaces .prod-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+
+<section id="necklaces-gallery" style="background:var(--ivory); border-top:1px solid rgba(184,144,64,.1); padding: 120px 72px;">
+  <div class="prod-sec-hdr" data-rv style="text-align:center; margin-bottom: 80px;">
+    <div class="stag" style="justify-content:center;">Premium Collection</div>
     <h2 class="stitle" data-rv data-d="100">Elegant <em>Necklaces</em></h2>
-    <p class="ssub" data-rv data-d="150">Discover our curated collection of stunning necklaces in gold, rose-gold, and silver finishes.</p>
+    <p class="ssub" style="margin: 0 auto;" data-rv data-d="150">Handcrafted masterpieces designed to elevate your grace and capture the essence of luxury.</p>
   </div>
-  <div class="prod-grid" id="necklaces-grid">
-    <!-- Images loaded from assets/images/neckless/ -->
-    <div class="prod-item" data-image="neckless/beidal,multi.set.webp" data-title="Bridal Multi-Set Necklace"></div>
-    <div class="prod-item" data-image="neckless/bridal statement set.png" data-title="Bridal Statement Set"></div>
-    <div class="prod-item" data-image="neckless/bridal,gold set.png" data-title="Bridal Gold Set"></div>
-    <div class="prod-item" data-image="neckless/celestial choker.jpg" data-title="Celestial Choker"></div>
-    <div class="prod-item" data-image="neckless/collection_jwellery.png" data-title="Collection Jewellery"></div>
-    <div class="prod-item" data-image="neckless/dimond,set.png" data-title="Diamond Set Necklace"></div>
-    <div class="prod-item" data-image="neckless/ethnic,set.png" data-title="Ethnic Set"></div>
-    <div class="prod-item" data-image="neckless/festivl,necklac.jpg" data-title="Festive Necklace"></div>
-    <div class="prod-item" data-image="neckless/multicolor_set.png" data-title="Multicolor Set"></div>
-    <div class="prod-item" data-image="neckless/rose,gold,set.jpg" data-title="Rose Gold Set"></div>
+  
+  <div class="prod-grid" style="grid-template-columns: repeat(4, 1fr); gap: 30px;">
+    <!-- N1 -->
+    <div class="elegant-necklace-card" data-rv data-d="100">
+      <div class="necklace-img-wrap">
+        <img src="images/necklaces/necklace-1.jpg" alt="Celestial Pearl Choker">
+      </div>
+      <div class="necklace-content">
+        <div>
+          <h3 class="necklace-name">Celestial Pearl Choker</h3>
+          <p class="necklace-desc">Exquisite kundan work with cascading ethereal pearls.</p>
+        </div>
+        <div>
+          <div class="necklace-price">₹1,299</div>
+          <a href="necklace-product-1.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- N2 -->
+    <div class="elegant-necklace-card" data-rv data-d="200">
+      <div class="necklace-img-wrap">
+        <img src="images/necklaces/necklace-2.jpg" alt="Royal Gold Bridal Set">
+      </div>
+      <div class="necklace-content">
+        <div>
+          <h3 class="necklace-name">Royal Gold Bridal Set</h3>
+          <p class="necklace-desc">Traditional temple jewellery with intricate craftsmanship.</p>
+        </div>
+        <div>
+          <div class="necklace-price">₹2,499</div>
+          <a href="necklace-product-2.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- N3 -->
+    <div class="elegant-necklace-card" data-rv data-d="300">
+      <div class="necklace-img-wrap">
+        <img src="images/necklaces/necklace-3.jpg" alt="Modern Rose Gold Elegance">
+      </div>
+      <div class="necklace-content">
+        <div>
+          <h3 class="necklace-name">Modern Rose Gold Elegance</h3>
+          <p class="necklace-desc">Sleek and contemporary design for the modern woman.</p>
+        </div>
+        <div>
+          <div class="necklace-price">₹899</div>
+          <a href="necklace-product-3.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- N4 -->
+    <div class="elegant-necklace-card" data-rv data-d="400">
+      <div class="necklace-img-wrap">
+        <img src="images/necklaces/necklace-4.jpg" alt="Diamond Lustre Necklace">
+      </div>
+      <div class="necklace-content">
+        <div>
+          <h3 class="necklace-name">Diamond Lustre Necklace</h3>
+          <p class="necklace-desc">Brilliant cubic zirconia set in a classic silhouette.</p>
+        </div>
+        <div>
+          <div class="necklace-price">₹1,799</div>
+          <a href="necklace-product-4.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
