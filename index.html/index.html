@@ -11,7 +11,7 @@
   --ivory:#fdf9f4; --ivory2:#f9f3ea; --ivory3:#f3ead8;
   --blush:#fceee6; --blush2:#f5d8c8; --blush3:#ebbfa6;
   --rose:#d4785a; --rose2:#c0604a; --rose3:#a84838;
-  --gold:#b89040; --gold-l:#cfa84e; --gold-xl:#e8c870;
+  --gold:#b89040; --gold-l:#cfa84e; --gold-xl:#e8c870; --gold-lux:#C5A47E;
   --champ:#c8a060; --champ2:#dbb878; --champ3:#f0d098;
   --warm:#8a6840; --warm2:#a88050; --warm3:#c09868;
   --stone:#685840; --stone2:#8a7858; --stone3:#b09878;
@@ -23,6 +23,21 @@
   --fs-xl:clamp(38px,4.2vw,68px); --fs-hero:clamp(58px,6.5vw,108px);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+.ra-icon {
+  width: 1em;
+  height: 1em;
+  stroke: var(--gold-lux);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 0.3s var(--ease);
+}
+.btn:hover .ra-icon { transform: translate(3px, -3px); }
+.svc:hover .ra-icon { transform: scale(1.1); stroke: var(--gold); }
+.aif:hover .ra-icon { transform: scale(1.15) rotate(5deg); }
 html{scroll-behavior:smooth;}
 body{background:var(--ivory);color:var(--ink);font-family:'Raleway',sans-serif;font-weight:300;line-height:1.65;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;}
 ::selection{background:rgba(184,144,64,.2);color:var(--ink);}
@@ -448,7 +463,7 @@ section{padding:112px 72px;position:relative;z-index:1;}
 .prod-item:hover img{transform:scale(1.08);}
 .prod-item::before{content:attr(data-title);position:absolute;inset:0;background:linear-gradient(to top,rgba(20,10,4,.85) 0%,rgba(20,10,4,.3) 50%,transparent 100%);display:flex;align-items:flex-end;padding:20px;color:var(--white);font-family:'Playfair Display',serif;font-size:16px;font-weight:400;line-height:1.3;opacity:0;transition:opacity .4s var(--ease);z-index:2;pointer-events:none;}
 .prod-item:hover::before{opacity:1;}
-.prod-item::after{content:'✦';position:absolute;top:14px;right:14px;color:var(--gold);font-size:14px;opacity:0;transform:scale(.6);transition:all .35s var(--ease);z-index:3;}
+.prod-item::after{content:'';position:absolute;top:14px;right:14px;width:14px;height:14px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C5A47E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z'/%3E%3C/svg%3E");background-size:contain;opacity:0;transform:scale(.6);transition:all .35s var(--ease);z-index:3;}
 .prod-item:hover::after{opacity:1;transform:scale(1);}
 
 /* ABOUT */
@@ -457,7 +472,7 @@ section{padding:112px 72px;position:relative;z-index:1;}
 .plist{list-style:none;display:flex;flex-direction:column;}
 .plist li{display:flex;gap:17px;align-items:flex-start;font-size:var(--fs-md);color:var(--text);line-height:1.85;padding:15px 0;border-bottom:1px solid rgba(184,144,64,.08);transition:padding-left .35s var(--ease),color .3s;}
 .plist li:hover{padding-left:10px;color:var(--ink2);}
-.plist li::before{content:'◆';color:var(--gold);font-size:7px;margin-top:7px;flex-shrink:0;}
+.plist li::before{content:'';width:8px;height:8px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C5A47E' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3h12l4 6-10 12L2 9Z'/%3E%3C/svg%3E");background-size:contain;margin-top:7px;flex-shrink:0;}
 .statg{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:52px;}
 .stcl{background:var(--ivory2);border:1px solid rgba(184,144,64,.1);padding:28px 24px;position:relative;overflow:hidden;transition:border-color .35s,transform .35s var(--ease);}
 .stcl:hover{border-color:rgba(184,144,64,.28);transform:translateY(-3px);}
@@ -724,7 +739,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
       </p>
       <div class="hero-actions" data-rv data-d="600">
         <a href="#collections" class="btn btn-primary">Shop Now</a>
-        <a href="#gallery" class="btn btn-text">View Lookbook ↗</a>
+        <a href="#gallery" class="btn btn-text">View Lookbook <svg class="ra-icon" style="width:0.9em;height:0.9em;margin-left:5px;" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       </div>
     </div>
   </div>
@@ -739,22 +754,22 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
 
 <!-- MARQUEE -->
 <div class="mq-wrap"><div class="mq-track">
-  <span class="mi">Stainless Steel Necklaces<span>✦</span></span>
-  <span class="mi">Bridal Jewellery Sets<span>✦</span></span>
-  <span class="mi">Gifts for Sister &amp; Wife<span>✦</span></span>
-  <span class="mi">Festive Season Collections<span>✦</span></span>
-  <span class="mi">Free Shipping on ₹599+<span>✦</span></span>
-  <span class="mi">Hypoallergenic · Skin-Safe<span>✦</span></span>
-  <span class="mi">Wedding &amp; Engagement Ready<span>✦</span></span>
-  <span class="mi">30-Day Easy Returns<span>✦</span></span>
-  <span class="mi">Stainless Steel Necklaces<span>✦</span></span>
-  <span class="mi">Bridal Jewellery Sets<span>✦</span></span>
-  <span class="mi">Gifts for Sister &amp; Wife<span>✦</span></span>
-  <span class="mi">Festive Season Collections<span>✦</span></span>
-  <span class="mi">Free Shipping on ₹599+<span>✦</span></span>
-  <span class="mi">Hypoallergenic · Skin-Safe<span>✦</span></span>
-  <span class="mi">Wedding &amp; Engagement Ready<span>✦</span></span>
-  <span class="mi">30-Day Easy Returns<span>✦</span></span>
+  <span class="mi">Stainless Steel Necklaces<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Bridal Jewellery Sets<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Gifts for Sister &amp; Wife<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Festive Season Collections<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Free Shipping on ₹599+<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Hypoallergenic · Skin-Safe<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Wedding &amp; Engagement Ready<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">30-Day Easy Returns<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Stainless Steel Necklaces<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Bridal Jewellery Sets<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Gifts for Sister &amp; Wife<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Festive Season Collections<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Free Shipping on ₹599+<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Hypoallergenic · Skin-Safe<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">Wedding &amp; Engagement Ready<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
+  <span class="mi">30-Day Easy Returns<span><svg class="ra-icon" style="width:0.7em;height:0.7em;margin:0 4px;opacity:0.6;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></span>
 </div></div>
 
 <!-- ═══════════════════════════════════
@@ -770,9 +785,9 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
       <h2 class="stitle" data-rv data-d="100">Your Personal<br><em>Jewellery Curator</em></h2>
       <div class="gl" data-rv data-d="200"></div>
       <div class="aifs">
-        <div class="aif" data-rv data-d="200"><div class="aico">🪄</div><div><div class="aift">Occasion Matching</div><div class="aifd">Tell us your event — bridal, festive, office, or casual. We'll curate pieces that fit the mood and moment perfectly.</div></div></div>
-        <div class="aif" data-rv data-d="300"><div class="aico">💎</div><div><div class="aift">Colour Harmony</div><div class="aifd">Share your outfit colour or skin tone and we'll suggest metals, stones, and silhouettes that create a stunning, cohesive look.</div></div></div>
-        <div class="aif" data-rv data-d="400"><div class="aico">🎁</div><div><div class="aift">Gift Discovery</div><div class="aifd">Finding a gift for your sister or wife? Describe her personality and budget. We'll find something she'll cherish for years.</div></div></div>
+        <div class="aif" data-rv data-d="200"><div class="aico"><svg class="ra-icon" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="m5 3 1 1"/><path d="m19 19 1 1"/><path d="m5 19 1-1"/><path d="m19 5 1-1"/></svg></div><div><div class="aift">Occasion Matching</div><div class="aifd">Tell us your event — bridal, festive, office, or casual. We'll curate pieces that fit the mood and moment perfectly.</div></div></div>
+        <div class="aif" data-rv data-d="300"><div class="aico"><svg class="ra-icon" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg></div><div><div class="aift">Colour Harmony</div><div class="aifd">Share your outfit colour or skin tone and we'll suggest metals, stones, and silhouettes that create a stunning, cohesive look.</div></div></div>
+        <div class="aif" data-rv data-d="400"><div class="aico"><svg class="ra-icon" viewBox="0 0 24 24"><rect width="18" height="14" x="3" y="8" rx="2"/><path d="M12 8V22"/><path d="M19 12H5"/><path d="M12 7c2.5-4 5-4 5-1.5S14.5 8 12 8c-2.5 0-5-2.5-5-5.5S9.5 3 12 7z"/></svg></div><div><div class="aift">Gift Discovery</div><div class="aifd">Finding a gift for your sister or wife? Describe her personality and budget. We'll find something she'll cherish for years.</div></div></div>
       </div>
     </div>
     <div data-rv="r" data-d="200">
@@ -804,7 +819,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
             <div class="aijc-overlay"><span>Explore Style</span></div>
           </div>
         </div>
-        <button class="aigb" id="aiGB" onclick="genAI()">✦ Generate My Style Board</button>
+        <button class="aigb" id="aiGB" onclick="genAI()"><svg class="ra-icon" style="width:1.1em;height:1.1em;margin-right:8px;stroke:white;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg> Generate My Style Board</button>
       </div>
     </div>
   </div>
@@ -825,7 +840,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
         <div class="stag" data-rv>Our Selection</div>
         <h2 class="stitle" data-rv data-d="100">Curated <em>Elegance</em></h2>
       </div>
-      <a href="#contact" class="bg" data-rv="r" style="margin-bottom:8px; text-decoration:none; color:var(--gold); font-size:var(--fs-xs); letter-spacing:2px; text-transform:uppercase;">View All Collections →</a>
+      <a href="#contact" class="bg" data-rv="r" style="margin-bottom:8px; text-decoration:none; color:var(--gold); font-size:var(--fs-xs); letter-spacing:2px; text-transform:uppercase;">View All Collections <svg class="ra-icon" style="width:0.85em;height:0.85em;margin-left:4px;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     </div>
 
     <div class="curated-grid" data-rv>
@@ -838,7 +853,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
           <h3 class="curated-title">Heritage Bridal<br>Statement Set</h3>
           <span class="curated-price">Premium Gold Finish · ₹1,299</span>
         </div>
-        <div class="curated-btn">↗</div>
+        <div class="curated-btn"><svg class="ra-icon" style="stroke:white;" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
       </div>
 
       <!-- SMALL IMAGE 1: Heavy Jhumka (3:2 Ratio) -->
@@ -849,7 +864,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
           <h3 class="curated-title">Heavy Jhumka Drops</h3>
           <span class="curated-price">From ₹499</span>
         </div>
-        <div class="curated-btn">↗</div>
+        <div class="curated-btn"><svg class="ra-icon" style="stroke:white;" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
       </div>
 
       <!-- SMALL IMAGE 2: Gold Bangles (3:2 Ratio) -->
@@ -860,7 +875,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
           <h3 class="curated-title">Royal Gold Bangles</h3>
           <span class="curated-price">Set of 4 · ₹699</span>
         </div>
-        <div class="curated-btn">↗</div>
+        <div class="curated-btn"><svg class="ra-icon" style="stroke:white;" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
       </div>
 
       <!-- SMALL IMAGE 3: Diamond Ring (3:2 Ratio) -->
@@ -970,7 +985,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
 <section id="gallery">
   <div class="ghdr">
     <div><div class="stag" data-rv>Lookbook</div><h2 class="stitle" data-rv data-d="100">Worn with <em>Pride</em></h2></div>
-    <a href="#contact" class="bg" data-rv="r" style="margin-bottom:10px;">Share Your Look →</a>
+    <a href="#contact" class="bg" data-rv="r" style="margin-bottom:10px; text-decoration:none; color:var(--gold); font-size:var(--fs-xs); letter-spacing:2px; text-transform:uppercase;">Share Your Look <svg class="ra-icon" style="width:0.85em;height:0.85em;margin-left:4px;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
   </div>
   <div class="gal-grid">
 
@@ -980,7 +995,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
         <img src="images/gallery-1.jpg" alt="Bridal Statement Set" onerror="this.style.cssText='width:100%;height:100%;object-fit:cover;background:linear-gradient(148deg,#fce8d8,#f0d0b8)'"/>
       </div>
       <div class="gal-overlay"><span class="gal-label">Bridal Statement Set</span></div>
-      <span class="gal-sparkle">✦</span>
+      <span class="gal-sparkle"><svg class="ra-icon" style="width:0.8em;height:0.8em;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span>
     </div>
 
     <!-- gallery-2.jpg: Close-up earrings shot -->
@@ -989,7 +1004,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
         <img src="images/gallery-2.jpg" alt="Drop Earring Collection" onerror="this.style.cssText='width:100%;height:100%;object-fit:cover;background:linear-gradient(148deg,#e8f0f8,#d0e0f0)'"/>
       </div>
       <div class="gal-overlay"><span class="gal-label">Drop Earring Collection</span></div>
-      <span class="gal-sparkle">✦</span>
+      <span class="gal-sparkle"><svg class="ra-icon" style="width:0.8em;height:0.8em;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span>
     </div>
 
     <!-- gallery-3.jpg: Necklace detail / festive -->
@@ -998,7 +1013,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
         <img src="images/gallery-3.jpg" alt="Festive Necklace" onerror="this.style.cssText='width:100%;height:100%;object-fit:cover;background:linear-gradient(148deg,#f8e8e0,#f0d0c0)'"/>
       </div>
       <div class="gal-overlay"><span class="gal-label">Festive Necklace</span></div>
-      <span class="gal-sparkle">✦</span>
+      <span class="gal-sparkle"><svg class="ra-icon" style="width:0.8em;height:0.8em;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span>
     </div>
 
     <!-- gallery-4.jpg: Bangles on wrist / green/emerald tones -->
@@ -1007,7 +1022,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
         <img src="images/gallery-4.jpg" alt="Bangle Set" onerror="this.style.cssText='width:100%;height:100%;object-fit:cover;background:linear-gradient(148deg,#e8f8e8,#d0f0d0)'"/>
       </div>
       <div class="gal-overlay"><span class="gal-label">Bangle Set</span></div>
-      <span class="gal-sparkle">✦</span>
+      <span class="gal-sparkle"><svg class="ra-icon" style="width:0.8em;height:0.8em;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span>
     </div>
 
     <!-- gallery-5.jpg: Party / ring / purple tones -->
@@ -1079,10 +1094,10 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     <div class="gl" data-rv data-d="200"></div>
   </div>
   <div class="strow">
-    <div class="stcrd" data-rv data-d="100"><div class="stnbg">01</div><div class="stiw">🔍</div><h3 class="stitle2">Browse or Describe</h3><p class="stdesc">Explore our curated collections by category, occasion, or metal. Or tell our Style Advisor what you need and it will shortlist pieces just for you.</p></div>
-    <div class="stcrd" data-rv data-d="200"><div class="stnbg">02</div><div class="stiw">💛</div><h3 class="stitle2">Choose Your Piece</h3><p class="stdesc">Each listing shows full material details, plating type, stone quality, and care instructions. What you see is exactly what you receive — no surprises.</p></div>
-    <div class="stcrd" data-rv data-d="300"><div class="stnbg">03</div><div class="stiw">📦</div><h3 class="stitle2">Gift-Ready Dispatch</h3><p class="stdesc">Every order is packed in our signature velvet box and dispatched within 24 hours. Track your order in real time. Free shipping on orders above ₹599.</p></div>
-    <div class="stcrd" data-rv data-d="400"><div class="stnbg">04</div><div class="stiw">✨</div><h3 class="stitle2">Wear With Confidence</h3><p class="stdesc">30-day hassle-free returns. Hypoallergenic guarantee. And our WhatsApp support team is always one message away — Monday to Saturday, 10am–7pm.</p></div>
+    <div class="stcrd" data-rv data-d="100"><div class="stnbg">01</div><div class="stiw"><svg class="ra-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><h3 class="stitle2">Browse or Describe</h3><p class="stdesc">Explore our curated collections by category, occasion, or metal. Or tell our Style Advisor what you need and it will shortlist pieces just for you.</p></div>
+    <div class="stcrd" data-rv data-d="200"><div class="stnbg">02</div><div class="stiw"><svg class="ra-icon" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div><h3 class="stitle2">Choose Your Piece</h3><p class="stdesc">Each listing shows full material details, plating type, stone quality, and care instructions. What you see is exactly what you receive — no surprises.</p></div>
+    <div class="stcrd" data-rv data-d="300"><div class="stnbg">03</div><div class="stiw"><svg class="ra-icon" viewBox="0 0 24 24"><path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" x2="12" y1="22" y2="12"/></svg></div><h3 class="stitle2">Gift-Ready Dispatch</h3><p class="stdesc">Every order is packed in our signature velvet box and dispatched within 24 hours. Track your order in real time. Free shipping on orders above ₹599.</p></div>
+    <div class="stcrd" data-rv data-d="400"><div class="stnbg">04</div><div class="stiw"><svg class="ra-icon" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="m5 3 1 1"/><path d="m19 19 1 1"/><path d="m5 19 1-1"/><path d="m19 5 1-1"/></svg></div><h3 class="stitle2">Wear With Confidence</h3><p class="stdesc">30-day hassle-free returns. Hypoallergenic guarantee. And our WhatsApp support team is always one message away — Monday to Saturday, 10am–7pm.</p></div>
   </div>
 </section>
 
@@ -1094,11 +1109,11 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     <p class="ssub" style="margin:0 auto;text-align:center;">We're not just a jewellery store. We're your styling partner for every milestone and celebration in life.</p>
   </div>
   <div class="svcg">
-    <div class="svc" data-rv data-d="100"><div class="svc-ico">💍</div><div class="svc-n">Service 01</div><h3 class="svc-title">Bridal Jewellery Curation</h3><p class="svc-desc">Complete bridal sets styled for mehndi, sangeet, reception, and vidaai — necklaces, maang tikka, jhumkas, nath, and bangles curated as a single cohesive collection so you dazzle at every ceremony.</p><div class="svc-cta">Book a Consultation →</div></div>
-    <div class="svc" data-rv data-d="200"><div class="svc-ico">🎁</div><div class="svc-n">Service 02</div><h3 class="svc-title">Gifting & Occasion Sets</h3><p class="svc-desc">Beautifully curated gift sets for sisters, wives, and mothers — for Raksha Bandhan, Diwali, weddings, and birthdays. Ready to give, elegantly packaged in our signature velvet gift boxes.</p><div class="svc-cta">Explore Gift Sets →</div></div>
-    <div class="svc" data-rv data-d="300"><div class="svc-ico">🏷️</div><div class="svc-n">Service 03</div><h3 class="svc-title">Wholesale & Reselling</h3><p class="svc-desc">Partner with Radiant Aura to stock our collections in your boutique or sell online. Competitive wholesale pricing, minimum orders of just 50 pieces per SKU, and a dedicated account manager for your business.</p><div class="svc-cta">Become a Partner →</div></div>
-    <div class="svc" data-rv data-d="400"><div class="svc-ico">✏️</div><div class="svc-n">Service 04</div><h3 class="svc-title">Custom & Bespoke Design</h3><p class="svc-desc">Have a design in mind? Share a reference image, describe your vision, or simply tell us the occasion and budget. Our craftspeople will create a personalised piece engraved with names, initials, or meaningful dates.</p><div class="svc-cta">Start Designing →</div></div>
-    <div class="svc" data-rv data-d="500"><div class="svc-ico">📋</div><div class="svc-n">Service 05</div><h3 class="svc-title">Bulk Corporate Gifting</h3><p class="svc-desc">Impress clients, reward teams, and celebrate milestones with Radiant Aura corporate gift sets. Custom packaging, company logo embossing, and pan-India delivery. Get in touch for bulk pricing and lead times.</p><div class="svc-cta">Request a Quote →</div></div>
+    <div class="svc" data-rv data-d="100"><div class="svc-ico"><svg class="ra-icon" style="width:1.2em;height:1.2em;" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg></div><div class="svc-n">Service 01</div><h3 class="svc-title">Bridal Jewellery Curation</h3><p class="svc-desc">Complete bridal sets styled for mehndi, sangeet, reception, and vidaai — necklaces, maang tikka, jhumkas, nath, and bangles curated as a single cohesive collection so you dazzle at every ceremony.</p><div class="svc-cta">Book a Consultation <svg class="ra-icon" style="width:0.8em;height:0.8em;margin-left:4px;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+    <div class="svc" data-rv data-d="200"><div class="svc-ico"><svg class="ra-icon" style="width:1.2em;height:1.2em;" viewBox="0 0 24 24"><rect width="18" height="14" x="3" y="8" rx="2"/><path d="M12 8V22"/><path d="M19 12H5"/><path d="M12 7c2.5-4 5-4 5-1.5S14.5 8 12 8c-2.5 0-5-2.5-5-5.5S9.5 3 12 7z"/></svg></div><div class="svc-n">Service 02</div><h3 class="svc-title">Gifting & Occasion Sets</h3><p class="svc-desc">Beautifully curated gift sets for sisters, wives, and mothers — for Raksha Bandhan, Diwali, weddings, and birthdays. Ready to give, elegantly packaged in our signature velvet gift boxes.</p><div class="svc-cta">Explore Gift Sets <svg class="ra-icon" style="width:0.8em;height:0.8em;margin-left:4px;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+    <div class="svc" data-rv data-d="300"><div class="svc-ico"><svg class="ra-icon" style="width:1.2em;height:1.2em;" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg></div><div class="svc-n">Service 03</div><h3 class="svc-title">Wholesale & Reselling</h3><p class="svc-desc">Partner with Radiant Aura to stock our collections in your boutique or sell online. Competitive wholesale pricing, minimum orders of just 50 pieces per SKU, and a dedicated account manager for your business.</p><div class="svc-cta">Become a Partner <svg class="ra-icon" style="width:0.8em;height:0.8em;margin-left:4px;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+    <div class="svc" data-rv data-d="400"><div class="svc-ico"><svg class="ra-icon" style="width:1.2em;height:1.2em;" viewBox="0 0 24 24"><path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/><path d="M7.07 14.94c-3.91.35-7.07 3.73-7.07 7.73v.33c0 .54.45 1 1 1h20c1.38 0 2.5-1.12 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5c-1.38 0-2.5 1.12-2.5 2.5"/><path d="m9.06 11.9-.8-.34a1.85 1.85 0 0 0-2.45 1l-1.16 2.92"/></svg></div><div class="svc-n">Service 04</div><h3 class="svc-title">Custom & Bespoke Design</h3><p class="svc-desc">Have a design in mind? Share a reference image, describe your vision, or simply tell us the occasion and budget. Our craftspeople will create a personalised piece engraved with names, initials, or meaningful dates.</p><div class="svc-cta">Start Designing <svg class="ra-icon" style="width:0.8em;height:0.8em;margin-left:4px;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+    <div class="svc" data-rv data-d="500"><div class="svc-ico"><svg class="ra-icon" style="width:1.2em;height:1.2em;" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></div><div class="svc-n">Service 05</div><h3 class="svc-title">Bulk Corporate Gifting</h3><p class="svc-desc">Impress clients, reward teams, and celebrate milestones with Radiant Aura corporate gift sets. Custom packaging, company logo embossing, and pan-India delivery. Get in touch for bulk pricing and lead times.</p><div class="svc-cta">Request a Quote <svg class="ra-icon" style="width:0.8em;height:0.8em;margin-left:4px;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
   </div>
 </section>
 
@@ -1109,14 +1124,14 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     <div class="rsum" data-rv="r"><div class="rbig">4.9</div><div class="rstars">★★★★★</div><div class="rcnt">Based on 1,400+ reviews</div></div>
   </div>
   <div class="rfeatured" data-rv data-d="100">
-    <div class="rf-quote">"</div>
+    <div class="rf-quote"><svg class="ra-icon" style="width:1em;height:1em;opacity:0.2;" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6Zm11 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6Z" fill="currentColor" stroke="none"/></svg></div>
     <p class="rf-txt">Radiant Aura completely changed how I think about gifting. I ordered the bridal set for my daughter's wedding and every single guest assumed it was real gold jewellery. The craftsmanship, the packaging, the attention to detail — this brand is extraordinary.</p>
     <div class="rf-auth"><div class="rf-av">S</div><div><div class="rf-name">Sunita Mehta</div><div class="rf-role">Loyal Customer · Indore · Verified Buyer</div></div><div class="rf-stars">★★★★★</div></div>
   </div>
   <div class="revg" style="margin-top:3px;">
-    <div class="rcard" data-rv data-d="100"><div class="rmark">"</div><p class="rtxt">The Style Advisor recommended the perfect necklace set for my sister's reception. I wore it the whole evening and got compliments from every guest. People kept asking where I got it — I felt absolutely royal.</p><div class="rauth"><div class="ravt">P</div><div><div class="rname">Priya Sharma</div><div class="rrole">Bride's Sister · Mumbai</div></div><div class="rstrs2">★★★★★</div></div></div>
-    <div class="rcard" data-rv data-d="200"><div class="rmark">"</div><p class="rtxt">Incredible quality at this price point. The rose-gold pendant I ordered looks more luxurious than pieces I've paid five times more for. It hasn't tarnished at all even after months of daily wear.</p><div class="rauth"><div class="ravt">A</div><div><div class="rname">Ananya Verma</div><div class="rrole">Fashion Blogger · Delhi</div></div><div class="rstrs2">★★★★★</div></div></div>
-    <div class="rcard" data-rv data-d="300"><div class="rmark">"</div><p class="rtxt">Ordered for Diwali gifting and the packaging alone blew me away — it looked like a premium jewellery store box. My mother cried happy tears when she opened it. I'm a customer for life!</p><div class="rauth"><div class="ravt">R</div><div><div class="rname">Riya Patel</div><div class="rrole">Loyal Customer · Ahmedabad</div></div><div class="rstrs2">★★★★★</div></div></div>
+    <div class="rcard" data-rv data-d="100"><div class="rmark"><svg class="ra-icon" style="width:1.2em;height:1.2em;opacity:0.15;" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6Zm11 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6Z" fill="currentColor" stroke="none"/></svg></div><p class="rtxt">The Style Advisor recommended the perfect necklace set for my sister's reception. I wore it the whole evening and got compliments from every guest. People kept asking where I got it — I felt absolutely royal.</p><div class="rauth"><div class="ravt">P</div><div><div class="rname">Priya Sharma</div><div class="rrole">Bride's Sister · Mumbai</div></div><div class="rstrs2">★★★★★</div></div></div>
+    <div class="rcard" data-rv data-d="200"><div class="rmark"><svg class="ra-icon" style="width:1.2em;height:1.2em;opacity:0.15;" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6Zm11 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6Z" fill="currentColor" stroke="none"/></svg></div><p class="rtxt">Incredible quality at this price point. The rose-gold pendant I ordered looks more luxurious than pieces I've paid five times more for. It hasn't tarnished at all even after months of daily wear.</p><div class="rauth"><div class="ravt">A</div><div><div class="rname">Ananya Verma</div><div class="rrole">Fashion Blogger · Delhi</div></div><div class="rstrs2">★★★★★</div></div></div>
+    <div class="rcard" data-rv data-d="300"><div class="rmark"><svg class="ra-icon" style="width:1.2em;height:1.2em;opacity:0.15;" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6Zm11 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6Z" fill="currentColor" stroke="none"/></svg></div><p class="rtxt">Ordered for Diwali gifting and the packaging alone blew me away — it looked like a premium jewellery store box. My mother cried happy tears when she opened it. I'm a customer for life!</p><div class="rauth"><div class="ravt">R</div><div><div class="rname">Riya Patel</div><div class="rrole">Loyal Customer · Ahmedabad</div></div><div class="rstrs2">★★★★★</div></div></div>
   </div>
   <div class="rbar-wrap" data-rv data-d="200">
     <div>
@@ -1132,9 +1147,9 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     <div>
       <div class="rbar-title">Also Reviewed On</div>
       <div class="rplatforms">
-        <div class="rplat"><div class="rplat-icon">📸</div><div><div class="rplat-name">Instagram</div><div class="rplat-score">4.9 ★ · 820+ Comments</div></div></div>
-        <div class="rplat"><div class="rplat-icon">🛒</div><div><div class="rplat-name">Amazon &amp; Meesho</div><div class="rplat-score">4.8 ★ · 450+ Orders</div></div></div>
-        <div class="rplat"><div class="rplat-icon">💬</div><div><div class="rplat-name">WhatsApp Reviews</div><div class="rplat-score">4.9 ★ · 280+ Messages</div></div></div>
+        <div class="rplat"><div class="rplat-icon"><svg class="ra-icon" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div><div><div class="rplat-name">Instagram</div><div class="rplat-score">4.9 ★ · 820+ Comments</div></div></div>
+        <div class="rplat"><div class="rplat-icon"><svg class="ra-icon" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div><div><div class="rplat-name">Amazon &amp; Meesho</div><div class="rplat-score">4.8 ★ · 450+ Orders</div></div></div>
+        <div class="rplat"><div class="rplat-icon"><svg class="ra-icon" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div><div><div class="rplat-name">WhatsApp Reviews</div><div class="rplat-score">4.9 ★ · 280+ Messages</div></div></div>
       </div>
     </div>
   </div>
@@ -1151,12 +1166,12 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     </div>
     <div data-rv="r" data-d="200">
       <div class="faq-list">
-        <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">What materials are Radiant Aura pieces made from?</span><span class="faq-icon">+</span></div><div class="faq-a"><p class="faq-atxt">All Radiant Aura jewellery is crafted from 316L surgical-grade stainless steel — the same grade used in medical implants. This makes our pieces completely hypoallergenic, nickel-free, and safe for sensitive skin. Our gold and rose-gold plating is applied using a vacuum deposition process for long-lasting colour and depth.</p></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">How long does the gold or rose-gold plating last?</span><span class="faq-icon">+</span></div><div class="faq-a"><p class="faq-atxt">With proper care, our plating lasts 1–3 years for everyday wear and much longer for occasional-wear pieces. Avoid direct contact with perfume, sweat, and water; store in the anti-tarnish bag we include; and polish gently with the microfibre cloth provided.</p></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">How quickly will my order arrive?</span><span class="faq-icon">+</span></div><div class="faq-a"><p class="faq-atxt">All orders are dispatched within 24 hours. Standard delivery across India takes 3–5 business days. Express 1–2 day delivery is available for major cities. We also ship internationally — delivery times vary by destination and are shown at checkout.</p></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">What is your return and exchange policy?</span><span class="faq-icon">+</span></div><div class="faq-a"><p class="faq-atxt">We offer a hassle-free 30-day return guarantee on all standard pieces. If you are not satisfied, message us on WhatsApp or email and we will arrange a free pickup and full refund or exchange, no questions asked.</p></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">Do you offer bulk or wholesale pricing?</span><span class="faq-icon">+</span></div><div class="faq-a"><p class="faq-atxt">Yes! We have a dedicated wholesale programme for boutiques, bridal houses, and online resellers across India. Minimum order quantity is 50 pieces per SKU. Contact us via the form below or WhatsApp us directly for our wholesale catalogue and pricing sheet.</p></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">Can I order a custom piece for a special occasion?</span><span class="faq-icon">+</span></div><div class="faq-a"><p class="faq-atxt">Absolutely. We offer fully custom design services — from name engravings to bespoke bridal sets. Simply fill in the contact form below with your occasion details, reference images, and budget and our design team will respond within 24 hours.</p></div></div>
+        <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">What materials are Radiant Aura pieces made from?</span><span class="faq-icon"><svg class="ra-icon" style="width:0.8em;height:0.8em;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></div><div class="faq-a"><p class="faq-atxt">All Radiant Aura jewellery is crafted from 316L surgical-grade stainless steel — the same grade used in medical implants. This makes our pieces completely hypoallergenic, nickel-free, and safe for sensitive skin. Our gold and rose-gold plating is applied using a vacuum deposition process for long-lasting colour and depth.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">How long does the gold or rose-gold plating last?</span><span class="faq-icon"><svg class="ra-icon" style="width:0.8em;height:0.8em;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></div><div class="faq-a"><p class="faq-atxt">With proper care, our plating lasts 1–3 years for everyday wear and much longer for occasional-wear pieces. Avoid direct contact with perfume, sweat, and water; store in the anti-tarnish bag we include; and polish gently with the microfibre cloth provided.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">How quickly will my order arrive?</span><span class="faq-icon"><svg class="ra-icon" style="width:0.8em;height:0.8em;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></div><div class="faq-a"><p class="faq-atxt">All orders are dispatched within 24 hours. Standard delivery across India takes 3–5 business days. Express 1–2 day delivery is available for major cities. We also ship internationally — delivery times vary by destination and are shown at checkout.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">What is your return and exchange policy?</span><span class="faq-icon"><svg class="ra-icon" style="width:0.8em;height:0.8em;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></div><div class="faq-a"><p class="faq-atxt">We offer a hassle-free 30-day return guarantee on all standard pieces. If you are not satisfied, message us on WhatsApp or email and we will arrange a free pickup and full refund or exchange, no questions asked.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">Do you offer bulk or wholesale pricing?</span><span class="faq-icon"><svg class="ra-icon" style="width:0.8em;height:0.8em;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></div><div class="faq-a"><p class="faq-atxt">Yes! We have a dedicated wholesale programme for boutiques, bridal houses, and online resellers across India. Minimum order quantity is 50 pieces per SKU. Contact us via the form below or WhatsApp us directly for our wholesale catalogue and pricing sheet.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-qtxt">Can I order a custom piece for a special occasion?</span><span class="faq-icon"><svg class="ra-icon" style="width:0.8em;height:0.8em;" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></div><div class="faq-a"><p class="faq-atxt">Absolutely. We offer fully custom design services — from name engravings to bespoke bridal sets. Simply fill in the contact form below with your occasion details, reference images, and budget and our design team will respond within 24 hours.</p></div></div>
       </div>
     </div>
   </div>
@@ -1174,7 +1189,12 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
       <div class="conitm"><div class="cilbl">Email</div><div class="cival">hello@radiantaura.in</div></div>
       <div class="conitm"><div class="cilbl">Studio (By Appointment)</div><div class="cival">Indore, Madhya Pradesh</div></div>
       <div class="conitm"><div class="cilbl">Hours</div><div class="cival">Mon–Sat · 10AM – 7PM IST</div></div>
-      <div class="socls" style="margin-top:34px;"><a href="#" class="socl">📸</a><a href="#" class="socl">💬</a><a href="#" class="socl">📌</a><a href="#" class="socl">▶</a></div>
+      <div class="socls" style="margin-top:34px;">
+        <a href="#" class="socl"><svg class="ra-icon" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+        <a href="#" class="socl"><svg class="ra-icon" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+        <a href="#" class="socl"><svg class="ra-icon" viewBox="0 0 24 24"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.79-.9A.5.5 0 0 1 16 12.1V8a4 4 0 0 0-8 0v4.1a.5.5 0 0 1-.1.45l-1.79.9A2 2 0 0 0 5 15.24Z"/></svg></a>
+        <a href="#" class="socl"><svg class="ra-icon" viewBox="0 0 24 24"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2 103.03 103.03 0 0 1 15 0 2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10 2 2 0 0 1-2 2 103.03 103.03 0 0 1-15 0 2 2 0 0 1-2-2Z"/><path d="m10 15 5-3-5-3z"/></svg></a>
+      </div>
     </div>
     <div data-rv="r">
       <div class="con-form-wrap">
@@ -1188,7 +1208,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
           <div class="fg"><label class="flbl">Budget Range</label><div class="budgets"><input type="radio" name="budget" id="b1" class="budget-opt" value="under500"/><label for="b1" class="budget-lbl">Under ₹500</label><input type="radio" name="budget" id="b2" class="budget-opt" value="500-1500"/><label for="b2" class="budget-lbl">₹500–₹1,500</label><input type="radio" name="budget" id="b3" class="budget-opt" value="above1500"/><label for="b3" class="budget-lbl">₹1,500+</label></div></div>
           <div class="fg"><label class="flbl">Your Message</label><textarea class="fta" placeholder="Tell us about your occasion, preferred style, the person you're gifting, or any specific pieces you've loved..." id="fm"></textarea></div>
           <button class="fsub" onclick="sf()">Send Message</button>
-          <div class="fok" id="fok">✦ Thank you! We'll reach out within 24 hours.</div>
+          <div class="fok" id="fok"><svg class="ra-icon" style="width:1em;height:1em;margin-right:8px;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg> Thank you! We'll reach out within 24 hours.</div>
         </div>
       </div>
     </div>
@@ -1201,13 +1221,18 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     <div>
       <div class="fbn">RADIANT<br><span style="font-size:20px;letter-spacing:14px;opacity:.7;">AURA</span></div>
       <div class="fbt">Premium imitation jewellery for the modern Indian woman. Stainless steel, hypoallergenic, tarnish-proof — and genuinely beautiful.</div>
-      <div class="socls"><a href="#" class="socl">📸</a><a href="#" class="socl">💬</a><a href="#" class="socl">📌</a><a href="#" class="socl">▶</a></div>
+      <div class="socls">
+        <a href="#" class="socl"><svg class="ra-icon" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+        <a href="#" class="socl"><svg class="ra-icon" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+        <a href="#" class="socl"><svg class="ra-icon" viewBox="0 0 24 24"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.79-.9A.5.5 0 0 1 16 12.1V8a4 4 0 0 0-8 0v4.1a.5.5 0 0 1-.1.45l-1.79.9A2 2 0 0 0 5 15.24Z"/></svg></a>
+        <a href="#" class="socl"><svg class="ra-icon" viewBox="0 0 24 24"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2 103.03 103.03 0 0 1 15 0 2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10 2 2 0 0 1-2 2 103.03 103.03 0 0 1-15 0 2 2 0 0 1-2-2Z"/><path d="m10 15 5-3-5-3z"/></svg></a>
+      </div>
     </div>
     <div><div class="fct">Navigate</div><ul class="fll"><li><a href="#home">Home</a></li><li><a href="#collections">Collections</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#ai-stylist">Style Advisor</a></li><li><a href="#about">About Us</a></li><li><a href="#hiw">How It Works</a></li><li><a href="#services">Services</a></li><li><a href="#testimonials">Reviews</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul></div>
     <div><div class="fct">Collections</div><ul class="fll"><li><a href="#">Bridal Sets</a></li><li><a href="#">Necklaces</a></li><li><a href="#">Earrings</a></li><li><a href="#">Rings &amp; Bangles</a></li><li><a href="#">Festive Special</a></li><li><a href="#">Gift Sets</a></li><li><a href="#">Wholesale</a></li></ul></div>
     <div><div class="fct">Support</div><ul class="fll"><li><a href="#">Shipping Info</a></li><li><a href="#">Return Policy</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Wholesale Inquiry</a></li><li><a href="#">Care Guide</a></li></ul></div>
   </div>
-  <div class="ftb"><span>© 2025 Radiant Aura Jewellery. All rights reserved.</span><span class="fstamp">✦ Made with Love in India ✦</span></div>
+  <div class="ftb"><span>© 2025 Radiant Aura Jewellery. All rights reserved.</span><span class="fstamp"><svg class="ra-icon" style="width:0.8em;height:0.8em;margin:0 6px;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg> Made with Love in India <svg class="ra-icon" style="width:0.8em;height:0.8em;margin:0 6px;" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span></div>
 </footer>
 
 <script>
