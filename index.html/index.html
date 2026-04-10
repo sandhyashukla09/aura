@@ -94,30 +94,23 @@ nav.sc{padding:16px 72px;background:rgba(253,249,244,.96);backdrop-filter:blur(2
   background: var(--ink);
 }
 
-.hero-bg-parallax {
+.hero-video {
   position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.hero-bg-img {
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
   object-fit: cover;
-  object-position: center;
-  transform: scale(1.1);
-  filter: brightness(0.7);
-  animation: heroBgZoom 20s linear infinite alternate;
-}
-
-@keyframes heroBgZoom {
-  to { transform: scale(1); }
+  z-index: 0;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(30, 20, 10, 0.4), rgba(30, 20, 10, 0.8));
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
@@ -125,12 +118,18 @@ nav.sc{padding:16px 72px;background:rgba(253,249,244,.96);backdrop-filter:blur(2
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1400px;
-  padding: 0 72px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.hero-content {
-  max-width: 700px;
+.hero-content-center {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-tagline {
@@ -144,10 +143,10 @@ nav.sc{padding:16px 72px;background:rgba(253,249,244,.96);backdrop-filter:blur(2
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(48px, 8vw, 100px);
-  line-height: 1;
+  line-height: 1.1;
   font-weight: 400;
   color: var(--white);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   letter-spacing: -1px;
 }
 
@@ -160,17 +159,18 @@ nav.sc{padding:16px 72px;background:rgba(253,249,244,.96);backdrop-filter:blur(2
 
 .hero-subtitle {
   font-size: var(--fs-lg);
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 500px;
-  margin-bottom: 48px;
-  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  margin-bottom: 40px;
+  line-height: 1.6;
   font-weight: 300;
 }
 
-.hero-actions {
+.hero-actions-center {
   display: flex;
   gap: 24px;
   align-items: center;
+  justify-content: center;
 }
 
 .btn {
@@ -684,6 +684,7 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
 <!-- MOBILE MENU -->
 <div class="mob" id="mob">
   <a href="#home" onclick="cm()">Home</a>
+  <a href="shop.html" onclick="cm()">Shop Now</a>
   <a href="#collections" onclick="cm()">Collections</a>
   <a href="#necklaces-gallery" onclick="cm()">Necklaces</a>
   <a href="#earrings-gallery" onclick="cm()">Earrings</a>
@@ -719,27 +720,25 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
 </nav>
 
 <!-- ═══════════════════════════════════
-     BRIDAL HERO SECTION
-     IMAGE: images/bridal-hero-new.jpg (Generated luxury bridal visual)
+     HERO SECTION (VIDEO BACKGROUND)
 ═══════════════════════════════════ -->
 <section id="home" class="hero">
-  <div class="hero-bg-parallax">
-    <img src="images/bridal-hero-new.jpg" alt="Bridal Jewellery Collection" class="hero-bg-img">
-    <div class="hero-overlay"></div>
-  </div>
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="images/hero,background,video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   
   <div class="hero-content-wrapper">
-    <div class="hero-content">
-      <div class="hero-tagline" data-rv>The Art of Celebration</div>
+    <div class="hero-content-center">
+      <div class="hero-tagline" data-rv>Radiant Aura</div>
       <h1 class="hero-title" data-rv data-d="200">
-        Bridal Jewellery<br><em>Collection</em>
+        Elegance That<br><em>Defines You</em>
       </h1>
       <p class="hero-subtitle" data-rv data-d="400">
-        Make your special day unforgettable with timeless elegance. Handcrafted pieces designed for the modern bride.
+        Discover premium stainless steel imitation jewellery designed for the modern woman.
       </p>
-      <div class="hero-actions" data-rv data-d="600">
+      <div class="hero-actions-center" data-rv data-d="600">
         <a href="shop.html" class="btn btn-primary shop-btn">Shop Now</a>
-        <a href="#gallery" class="btn btn-text">View Lookbook <svg class="ra-icon" style="width:0.9em;height:0.9em;margin-left:5px;" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       </div>
     </div>
   </div>
@@ -748,8 +747,6 @@ footer .socl:hover{border-color:var(--gold);color:var(--gold);}
     <span class="scroll-line"></span>
     <span class="scroll-text">Scroll to explore</span>
   </div>
-  
-  <div class="hero-side-text">ESTD 2024</div>
 </section>
 
 <!-- MARQUEE -->
