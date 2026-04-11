@@ -7,7 +7,7 @@ with open(index_path, 'r', encoding='utf-8') as f:
     content = f.read()
 
 # Extract the header part (up to the end of <nav>)
-start_nav = content.find('<nav id="nav">')
+start_nav = content.find('<nav id="mainNav">')
 end_nav = content.find('</nav>', start_nav) + 6
 
 header_part = content[:end_nav]

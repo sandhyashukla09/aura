@@ -6,7 +6,7 @@ const shop_path = 'c:\\Users\\LENOVO\\Desktop\\aura\\shop.html';
 const content = fs.readFileSync(index_path, 'utf-8');
 
 // Extract the header part (up to the end of <nav>)
-const start_nav = content.indexOf('<nav id="nav">');
+const start_nav = content.indexOf('<nav id="mainNav">');
 const end_nav = content.indexOf('</nav>', start_nav) + 6;
 
 let header_part = content.substring(0, end_nav);
@@ -410,23 +410,23 @@ let shop_html = `
 products.forEach((p, idx) => {
     let revs_html = '';
     p.reviews.forEach(r => {
-        revs_html += \`<div class="review-item"><div class="review-author">\${r.author}</div><div class="review-text">"\${r.text}"</div></div>\`;
+        revs_html += `<div class="review-item"><div class="review-author">${r.author}</div><div class="review-text">"${r.text}"</div></div>`;
     });
 
-    shop_html += \`
-  <div class="product-full-card" id="product-\${idx+1}">
+    shop_html += `
+  <div class="product-full-card" id="product-${idx+1}">
     <div class="product-image-container">
-      <img src="\${p.img}" alt="\${p.title}" loading="lazy">
+      <img src="${p.img}" alt="${p.title}" loading="lazy">
     </div>
     <div class="product-details-container">
-      <span class="product-tag">\${p.tag}</span>
-      <h2 class="product-title">\${p.title}</h2>
+      <span class="product-tag">${p.tag}</span>
+      <h2 class="product-title">${p.title}</h2>
       <div class="product-ratings">★★★★★ <span>(Customer Reviews)</span></div>
-      <div class="product-price">\${p.price} <span>\${p.old_price}</span></div>
-      <p class="product-description">\${p.desc}</p>
+      <div class="product-price">${p.price} <span>${p.old_price}</span></div>
+      <p class="product-description">${p.desc}</p>
       
       <div class="product-reviews">
-        \${revs_html}
+        ${revs_html}
       </div>
       
       <div class="product-actions">
@@ -435,15 +435,15 @@ products.forEach((p, idx) => {
       </div>
     </div>
   </div>
-\`;
+`;
 });
 
 shop_html += '</div>';
 
 header_part = header_part.replace('<title>Radiant Aura — Premium Imitation Jewellery | Stainless Steel Necklaces & Bridal Sets</title>', '<title>Shop All Products | Radiant Aura</title>');
-header_part = header_part.replace('</head>', shop_css + '\\n</head>');
+header_part = header_part.replace('</head>', shop_css + '\n</head>');
 
-const final_html = header_part + '\\n' + shop_html + '\\n' + footer_part;
+const final_html = header_part + '\n' + shop_html + '\n' + footer_part;
 
 fs.writeFileSync(shop_path, final_html, 'utf-8');
 console.log("shop.html generated successfully!");
