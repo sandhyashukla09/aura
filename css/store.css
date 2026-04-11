@@ -1,0 +1,119 @@
+/* Store Shared Styles */
+:root {
+  --gold: #B8960C; --gold-l: #D4AF37; --gold-xl: #E8CE6A; --gold-pale: #F5E9C0;
+  --ivory: #FDFAF4; --ivory2: #F7F2E8; --ivory3: #EEE5CC;
+  --ink: #1A1007; --ink2: #2C1D0A; --ink3: #3E2F18;
+  --text: #6B5533; --text2: #8C7050; --white: #FFFFFF;
+  --rose: #C4785A; --blush: #FAF0EA;
+  --ease: cubic-bezier(0.16,1,0.3,1);
+}
+
+/* Cart Icon in Nav */
+.nav-cart-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+nav.scrolled .nav-cart-btn { color: var(--gold); }
+.nav-cart-btn:hover { color: var(--gold-xl); }
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--rose);
+  color: white;
+  font-size: 9px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border: 1.5px solid var(--ivory);
+}
+
+/* Store Buttons */
+.btn-primary {
+  background: var(--gold);
+  color: var(--white);
+  padding: 14px 28px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s var(--ease);
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+.btn-primary:hover {
+  background: var(--gold-l);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(184,150,12,0.25);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+  padding: 13px 26px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s var(--ease);
+  font-family: 'Jost', sans-serif;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+.btn-secondary:hover {
+  background: rgba(184,150,12,0.05);
+  color: var(--gold-l);
+  border-color: var(--gold-l);
+}
+
+/* Quantity Selector */
+.qty-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(184,150,12,0.2);
+  width: fit-content;
+  background: var(--white);
+}
+.qty-btn {
+  width: 40px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--gold);
+  transition: background 0.3s;
+  user-select: none;
+}
+.qty-btn:hover { background: var(--ivory2); }
+.qty-val {
+  width: 50px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  border-left: 1px solid rgba(184,150,12,0.1);
+  border-right: 1px solid rgba(184,150,12,0.1);
+}
+
+/* Utility */
+.text-gold { color: var(--gold); }
+.font-serif { font-family: 'Cormorant Garamond', serif; }

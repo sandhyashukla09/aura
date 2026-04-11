@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/store.css">
 <style>
 :root {
   --gold: #B8960C; --gold-l: #D4AF37; --gold-xl: #E8CE6A; --gold-pale: #F5E9C0;
@@ -38,6 +39,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .nav-links{display:flex;gap:34px;list-style:none;}
 .nav-links a{color:var(--text);text-decoration:none;font-size:10px;letter-spacing:3px;text-transform:uppercase;position:relative;transition:color .3s;}
 .nav-links a:hover{color:var(--gold);}
+.nav-right { display: flex; align-items: center; gap: 20px; }
 .nav-cta{border:1.5px solid var(--gold);color:var(--gold);padding:10px 26px;font-size:10px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;position:relative;overflow:hidden;transition:color .4s var(--ease),border-color .4s;}
 .nav-cta:hover{color:var(--white)!important;}
 .nav-cta::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-105%);transition:transform .4s var(--ease);z-index:-1;}
@@ -47,7 +49,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .shop-hero p {color: var(--text2); max-width: 600px; margin: 0 auto; font-size: 16px; letter-spacing: 1px;}
 .shop-section {padding: 80px 64px;}
 .prod-grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px 30px;}
-.prod-card {position: relative; background: var(--white); border: 1px solid rgba(184,150,12,0.08); padding-bottom: 24px; transition: all 0.5s var(--ease); cursor: pointer;}
+.prod-card {position: relative; background: var(--white); border: 1px solid rgba(184,150,12,0.08); padding-bottom: 24px; transition: all 0.5s var(--ease); cursor: pointer; display: block; text-decoration: none;}
 .prod-card:hover {transform: translateY(-10px); border-color: rgba(184,150,12,0.25); box-shadow: 0 20px 50px rgba(30,20,10,0.08);}
 .prod-img-wrap {aspect-ratio: 4/5; overflow: hidden; background: var(--ivory2); position: relative; margin-bottom: 20px;}
 .prod-img-wrap img {width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease);}
@@ -106,7 +108,13 @@ footer {background: var(--ink); color: var(--text2); padding: 80px 64px 40px; te
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
-  <a href="http://127.0.0.1:5500/shop.html" class="nav-cta">Shop Now</a>
+  <div class="nav-right">
+    <a href="cart.html" class="nav-cart-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count">0</span>
+    </a>
+    <a href="shop.html" class="nav-cta">Shop All</a>
+  </div>
 </nav>
 <header class="shop-hero"><h1>The Collection</h1><p>Discover our range of handcrafted luxury imitation jewellery, meticulously designed for the modern royal experience.</p></header>
 <section class="shop-section"><div class="prod-grid" id="productGrid"></div></section>
@@ -122,48 +130,31 @@ footer {background: var(--ink); color: var(--text2); padding: 80px 64px 40px; te
       <p class="m-desc" id="modalDesc"></p>
       <div class="m-stock">In Stock, Ships in 24 Hours</div>
       <div class="m-actions">
-        <div class="m-btn m-btn-outline" onclick="alert('Added to cart!')">Add to Cart</div>
-        <div class="m-btn m-btn-gold" onclick="alert('Proceeding to Checkout...')">Buy Now</div>
+        <div class="m-btn m-btn-outline" id="modalAddBtn">Add to Cart</div>
+        <div class="m-btn m-btn-gold" id="modalBuyBtn">Buy Now</div>
+      </div>
+      <div style="margin-top: 20px; text-align: center;">
+        <a id="modalFullBtn" href="#" style="font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border-bottom: 1px solid rgba(184,150,12,0.3); padding-bottom: 4px;">View Full Details</a>
       </div>
     </div>
   </div>
 </div>
 <footer><div class="f-logo">RADIANT AURA</div><div class="f-copy">&copy; 2026 Radiant Aura Luxury Jewellery. All rights reserved.</div></footer>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
 <script>
-const products = [
-    {img: "images/necklaces/necklace-1.jpg", tag: "BRIDAL NECKLACE", title: "Celestial Pearl Choker", price: "RS 1,299", old_price: "RS 1,999", desc: "Exquisite kundan work with cascading ethereal pearls. Perfectly crafted to enhance your traditional look with a modern touch. Hypoallergenic and lightweight for all-day comfort."},
-    {img: "images/necklaces/necklace-2.jpg", tag: "PREMIUM Gold", title: "Royal Gold Bridal Set", price: "RS 2,499", old_price: "RS 3,499", desc: "Traditional temple jewellery with intricate craftsmanship. Bring out the goddess in you with this heavily embellished gold-finish statement piece."},
-    {img: "images/necklaces/necklace-3.jpg", tag: "MODERN SELECTION", title: "Modern Rose Gold Elegance", price: "RS 899", old_price: "RS 1,299", desc: "Sleek and contemporary design for the modern woman. A beautiful rose-gold plated necklace that elegantly transitions from day to night."},
-    {img: "images/necklaces/necklace-4.jpg", tag: "LUXURY", title: "Diamond Lustre Necklace", price: "RS 1,799", old_price: "RS 2,500", desc: "Brilliant cubic zirconia set in a classic silhouette. The flawless precision cut of the stones gives an unbelievable shine comparable to real diamonds."},
-    {img: "images/earings/heavi,jhumka.jpg", tag: "TRADITIONAL EARRINGS", title: "Heavy Jhumka Drops", price: "RS 499", old_price: "RS 799", desc: "Classic heavy jhumka design with intricate detailing."},
-    {img: "images/bangals/gold,bangals.png", tag: "DAILY WEAR", title: "Royal Gold Bangles Set", price: "RS 699", old_price: "RS 999", desc: "A set of four premium gold-plated bangles."},
-    {img: "images/ring/dimond,ring.png", tag: "SIGNATURE RINGS", title: "Eternal Diamond Ring", price: "RS 399", old_price: "RS 599", desc: "Adjustable solitaire ring featuring a high-clarity cubic zirconia stone."},
-    {img: "images/earings/long_earings.jpg", tag: "STATEMENT EARRINGS", title: "Cascade Long Earrings", price: "RS 549", old_price: "RS 899", desc: "Elegant long cascading earrings in rose gold finish."},
-    {img: "images/earings/dimonds_earings.png", tag: "ELEGANT", title: "Crystal Drop Diamond Earrings", price: "RS 799", old_price: "RS 1,199", desc: "Dazzle the crowd with these exquisite crystal drop earrings."},
-    {img: "images/earings/light,earing.png", tag: "EVERYDAY WEAR", title: "Lightweight Floral Earrings", price: "RS 299", old_price: "RS 499", desc: "Delicate and exceptionally lightweight floral studs."},
-    {img: "images/earings/mini aring.png", tag: "MINIMALIST", title: "Mini A-Ring Studs", price: "RS 349", old_price: "RS 599", desc: "A trendy geometric design for the modern aesthetic."},
-    {img: "images/earings/sheaded_earings.png", tag: "ARTISANAL", title: "Shaded Enamel Earrings", price: "RS 649", old_price: "RS 999", desc: "Hand-painted enamel shading with gold accents."},
-    {img: "images/bangals/floral,bangl,set.webp", tag: "FESTIVE", title: "Floral Bangle Set", price: "RS 899", old_price: "RS 1,299", desc: "A beautiful set of floral etched bangles perfect for festive seasons."},
-    {img: "images/neckless/bridal,gold set.png", tag: "HERITAGE", title: "Heritage Bridal Statement Set", price: "RS 3,499", old_price: "RS 5,000", desc: "A majestic piece for your big day with heavy layered detailing."},
-    {img: "images/neckless/rose,gold,set.jpg", tag: "CONTEMPORARY", title: "Rose Gold Evening Set", price: "RS 2,199", old_price: "RS 3,299", desc: "Sophisticated rose gold finish combined with subtle rhinestone accents."},
-    {img: "images/neckless/festive,set.png", tag: "FESTIVE", title: "Royal Festive Set", price: "RS 1,899", old_price: "RS 2,799", desc: "Glimmering festive necklace set for celebrations."},
-    {img: "images/neckless/bridal statement set.png", tag: "BRIDAL", title: "Majestic Bridal Statement", price: "RS 4,999", old_price: "RS 7,500", desc: "Ultimate statement piece for the royal bride."},
-    {img: "images/neckless/beidal,multi.set.webp", tag: "MULTI SET", title: "Traditional Multi-Layer Set", price: "RS 2,899", old_price: "RS 4,200", desc: "Multi-layered traditional necklace with intricate work."},
-    {img: "images/neckless/multicolor_set.png", tag: "EXOTIC", title: "Vibrant Multicolor Royal Set", price: "RS 3,199", old_price: "RS 4,500", desc: "A colorful explosion of gemstones for a truly exotic look."},
-    {img: "images/ring/gold,nose,ring.webp", tag: "ACCESSORIES", title: "Royal Gold Nose Ring", price: "RS 199", old_price: "RS 399", desc: "Classic traditional nose ring with gold finish."},
-    {img: "images/earings/miniround_earings.png", tag: "MINIMALIST", title: "Mini Round Studs", price: "RS 249", old_price: "RS 450", desc: "Perfect round studs for everyday elegance."}
-];
 const grid = document.getElementById('productGrid');
 const overlay = document.getElementById('modalOverlay');
 function renderShop() {
-  grid.innerHTML = products.map((p, i) => `
+  const prods = window.productData;
+  grid.innerHTML = prods.map((p, i) => `
     <div class="prod-card" onclick="openModal(${i})">
-      <div class="prod-img-wrap"><div class="prod-tag">${p.tag}</div><img src="${p.img}" alt="${p.title}"></div>
+      <div class="prod-img-wrap"><div class="prod-tag">${p.category}</div><img src="images/${p.image}" alt="${p.name}"></div>
       <div class="prod-info">
-        <h3 class="prod-name">${p.title}</h3>
+        <h3 class="prod-name">${p.name}</h3>
         <div class="prod-stars">★★★★★</div>
-        <div class="prod-price">${p.price} <span>${p.old_price}</span></div>
-        <p class="prod-desc-short">${p.desc}</p>
+        <div class="prod-price">₹${p.price} <span>${p.originalPrice ? '₹'+p.originalPrice : ''}</span></div>
+        <p class="prod-desc-short">${p.description}</p>
         <div class="prod-btn">View Details</div>
       </div>
     </div>
@@ -174,12 +165,17 @@ function renderShop() {
   });
 }
 function openModal(index) {
-  const p = products[index];
-  document.getElementById('modalImg').src = p.img;
-  document.getElementById('modalTag').innerText = p.tag;
-  document.getElementById('modalTitle').innerText = p.title;
-  document.getElementById('modalPrice').innerHTML = `${p.price} <span style="font-size:16px; text-decoration:line-through; color:var(--text2); margin-left:10px; opacity:0.6;">${p.old_price}</span>`;
-  document.getElementById('modalDesc').innerText = p.desc;
+  const p = window.productData[index];
+  document.getElementById('modalImg').src = 'images/' + p.image;
+  document.getElementById('modalTag').innerText = p.category;
+  document.getElementById('modalTitle').innerText = p.name;
+  document.getElementById('modalPrice').innerHTML = `₹${p.price} <span style="font-size:16px; text-decoration:line-through; color:var(--text2); margin-left:10px; opacity:0.6;">${p.originalPrice ? '₹'+p.originalPrice : ''}</span>`;
+  document.getElementById('modalDesc').innerText = p.description;
+  
+  document.getElementById('modalAddBtn').onclick = () => { CartSystem.addToCart(p.id); closeModal(); };
+  document.getElementById('modalBuyBtn').onclick = () => { CartSystem.addToCart(p.id, 1, true); window.location.href = 'checkout.html'; };
+  document.getElementById('modalFullBtn').href = `product.html?id=${p.id}`;
+  
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -194,7 +190,10 @@ function animCursor() {
   requestAnimationFrame(animCursor);
 }
 animCursor();
-window.addEventListener('load', () => { renderShop(); setTimeout(() => { document.getElementById('ldr').classList.add('out'); }, 1000); });
+window.addEventListener('load', () => { 
+    renderShop(); 
+    setTimeout(() => { document.getElementById('ldr').classList.add('out'); }, 1000); 
+});
 </script>
 </body>
 </html>

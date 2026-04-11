@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Order Confirmed | Radiant Aura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/store.css">
+<style>
+.conf-container { padding: 160px 24px 80px; text-align: center; max-width: 800px; margin: 0 auto; }
+.success-icon { width: 80px; height: 80px; background: #27ae60; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 30px; animation: scaleUp 0.6s var(--ease); }
+@keyframes scaleUp { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.conf-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: var(--ink); margin-bottom: 15px; }
+.conf-hero p { color: var(--text2); font-size: 16px; margin-bottom: 50px; letter-spacing: 1px; }
+
+.order-card { background: var(--white); border: 1px solid rgba(184,150,12,0.15); padding: 40px; text-align: left; margin-bottom: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); }
+.order-header { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(184,150,12,0.1); padding-bottom: 20px; margin-bottom: 25px; }
+.order-id { font-size: 11px; letter-spacing: 2px; color: var(--text2); text-transform: uppercase; }
+.order-date { font-size: 13px; color: var(--gold); font-weight: 500; }
+
+.conf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.conf-section-title { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 15px; }
+.conf-text { font-size: 14px; line-height: 1.6; color: var(--ink); }
+
+.item-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed rgba(184,150,12,0.1); }
+
+footer { padding: 40px 0; border-top: 1px solid rgba(184,150,12,0.1); margin-top: 40px; }
+nav { position: fixed; top: 0; left: 0; right: 0; padding: 28px 64px; text-align: center; background: white; z-index: 500; }
+
+@media(max-width: 640px) {
+    .conf-grid { grid-template-columns: 1fr; gap: 30px; }
+    .conf-hero h1 { font-size: 32px; }
+}
+</style>
+</head>
+<body style="background: var(--ivory);">
+
+<div class="conf-container">
+    <div class="success-icon">✓</div>
+    <div class="conf-hero">
+        <h1>Thank You for Your Order!</h1>
+        <p>Your journey to royal elegance has begun. We've received your order and are preparing it with care.</p>
+    </div>
+
+    <div class="order-card">
+        <div class="order-header">
+            <div class="order-id" id="ordId">ORDER #RA-000000</div>
+            <div class="order-date" id="ordDate">April 11, 2026</div>
+        </div>
+
+        <div class="conf-grid">
+            <div>
+                <h3 class="conf-section-title">Delivery Address</h3>
+                <div class="conf-text" id="ordAddr">
+                    Loading address...
+                </div>
+                <div style="margin-top: 20px;">
+                    <h3 class="conf-section-title">Payment Method</h3>
+                    <div class="conf-text">Cash on Delivery (COD)<br><strong>Status:</strong> Pending Payment</div>
+                </div>
+            </div>
+            <div>
+                <h3 class="conf-section-title">Order Summary</h3>
+                <div id="ordItems">
+                    <!-- Items -->
+                </div>
+                <div style="margin-top: 20px; border-top: 2px solid var(--ivory2); padding-top: 15px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: 600; color: var(--gold);">
+                        <span>Total Paid (COD)</span>
+                        <span id="ordTotal">₹0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 60px;">
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-bottom: 15px;">What happens next?</h3>
+        <p style="font-size: 14px; color: var(--text2); line-height: 1.8; max-width: 600px; margin: 0 auto;">
+            Our team will call you within 24 hours to verify your order. Once verified, your handcrafted jewellery will be dispatched and reach you in 3-5 business days.
+        </p>
+    </div>
+
+    <div style="display: flex; gap: 20px; justify-content: center;">
+        <a href="index.html" class="btn-secondary">Back to Home</a>
+        <a href="shop.html" class="btn-primary">Continue Shopping</a>
+    </div>
+</div>
+
+<script>
+window.addEventListener('load', () => {
+    const data = JSON.parse(localStorage.getItem('last_order'));
+    if (!data) {
+        window.location.href = 'index.html';
+        return;
+    }
+
+    document.getElementById('ordId').innerText = `ORDER #${data.orderId}`;
+    document.getElementById('ordAddr').innerText = data.address;
+    document.getElementById('ordTotal').innerText = `₹${data.total}`;
+    
+    const date = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('ordDate').innerText = date.toLocaleDateString('en-US', options);
+
+    document.getElementById('ordItems').innerHTML = data.items.map(item => `
+        <div class="item-row">
+            <span>${item.name} (x${item.quantity})</span>
+            <span>₹${item.price * item.quantity}</span>
+        </div>
+    `).join('');
+});
+</script>
+</body>
+</html>
