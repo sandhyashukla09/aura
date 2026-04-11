@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elegant Necklaces — Radiant Aura</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@200;300;400;500;600&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/store.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --ivory: #fdf9f4;
             --ivory2: #f9f3ea;
-            --gold: #b89040;
-            --gold-l: #cfa84e;
+            --gold: #B8960C;
+            --gold-l: #D4AF37;
             --gold-lux: #C5A47E;
             --ink: #1e140a;
             --text: #6a5840;
@@ -34,7 +34,7 @@
         body {
             background-color: var(--ivory);
             color: var(--ink);
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Jost', sans-serif;
             font-weight: 300;
             line-height: 1.65;
             overflow-x: hidden;
@@ -58,7 +58,7 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 24px;
             letter-spacing: 8px;
             color: var(--gold);
@@ -100,6 +100,8 @@
             color: var(--white);
         }
 
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+
         /* PAGE HEADER */
         .catalog-header {
             padding: 180px 72px 80px;
@@ -128,7 +130,7 @@
         }
 
         .catalog-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: var(--fs-xl);
             color: var(--ink);
             margin-bottom: 24px;
@@ -158,13 +160,14 @@
         .necklace-section {
             background: var(--white);
             border: 1px solid rgba(184, 144, 64, 0.1);
-            border-radius: 12px;
+            border-radius: 4px;
             overflow: hidden;
             transition: all 0.5s var(--ease);
             position: relative;
             display: flex;
             flex-direction: column;
             text-align: center;
+            text-decoration: none;
         }
 
         .necklace-section:hover {
@@ -201,7 +204,7 @@
         }
 
         .necklace-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 20px;
             color: var(--ink);
             margin: 0 0 12px 0;
@@ -217,7 +220,7 @@
         }
 
         .necklace-price {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Jost', sans-serif;
             font-size: 18px;
             color: var(--gold);
             font-weight: 700;
@@ -234,7 +237,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 700;
-            border-radius: 4px;
+            border-radius: 0px;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
@@ -278,7 +281,7 @@
         }
         
         .footer-logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 32px;
             letter-spacing: 8px;
             color: var(--gold);
@@ -313,7 +316,13 @@
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
-        <a href="http://127.0.0.1:5500/shop.html" class="nav-cta">Shop Now</a>
+        <div class="nav-right">
+            <a href="cart.html" class="nav-cart-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <span class="cart-count">0</span>
+            </a>
+            <a href="shop.html" class="nav-cta">Shop All</a>
+        </div>
     </nav>
 
     <header class="catalog-header">
@@ -325,7 +334,7 @@
     <main class="necklace-gallery">
         
         <!-- PRODUCT 1 -->
-        <section class="necklace-section">
+        <a href="product.html?id=necklace-1" class="necklace-section">
             <div class="necklace-img-wrap">
                 <img src="images/necklaces/necklace-1.jpg" alt="Celestial Pearl Choker">
             </div>
@@ -336,13 +345,13 @@
                 </div>
                 <div>
                     <div class="necklace-price">₹1,299</div>
-                    <a href="necklace-product-1.html" class="necklace-button">VIEW DETAILS</a>
+                    <div class="necklace-button">VIEW DETAILS</div>
                 </div>
             </div>
-        </section>
+        </a>
 
         <!-- PRODUCT 2 -->
-        <section class="necklace-section">
+        <a href="product.html?id=necklace-2" class="necklace-section">
             <div class="necklace-img-wrap">
                 <img src="images/necklaces/necklace-2.jpg" alt="Royal Gold Bridal Set">
             </div>
@@ -353,13 +362,13 @@
                 </div>
                 <div>
                     <div class="necklace-price">₹2,499</div>
-                    <a href="necklace-product-2.html" class="necklace-button">VIEW DETAILS</a>
+                    <div class="necklace-button">VIEW DETAILS</div>
                 </div>
             </div>
-        </section>
+        </a>
 
         <!-- PRODUCT 3 -->
-        <section class="necklace-section">
+        <a href="product.html?id=necklace-3" class="necklace-section">
             <div class="necklace-img-wrap">
                 <img src="images/necklaces/necklace-3.jpg" alt="Modern Rose Gold Elegance">
             </div>
@@ -370,13 +379,13 @@
                 </div>
                 <div>
                     <div class="necklace-price">₹899</div>
-                    <a href="necklace-product-3.html" class="necklace-button">VIEW DETAILS</a>
+                    <div class="necklace-button">VIEW DETAILS</div>
                 </div>
             </div>
-        </section>
+        </a>
 
         <!-- PRODUCT 4 -->
-        <section class="necklace-section">
+        <a href="product.html?id=necklace-4" class="necklace-section">
             <div class="necklace-img-wrap">
                 <img src="images/necklaces/necklace-4.jpg" alt="Diamond Lustre Necklace">
             </div>
@@ -387,10 +396,10 @@
                 </div>
                 <div>
                     <div class="necklace-price">₹1,799</div>
-                    <a href="necklace-product-4.html" class="necklace-button">VIEW DETAILS</a>
+                    <div class="necklace-button">VIEW DETAILS</div>
                 </div>
             </div>
-        </section>
+        </a>
 
     </main>
 
@@ -403,5 +412,6 @@
         </div>
     </footer>
 
+    <script src="js/cart.js"></script>
 </body>
 </html>
